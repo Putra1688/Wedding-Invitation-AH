@@ -1,0 +1,74 @@
+---
+// src/components/LocationSection.astro
+const googleMapsUrl = "https://maps.google.com/?q=-6.2088,106.8456";
+const qrCodeUrl = `https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=${encodeURIComponent(googleMapsUrl)}&color=4A3525&bgcolor=FAF6ED`;
+---
+
+<section id="lokasi" class="py-16 sm:py-24 px-4 bg-[#FAF6ED]">
+  <div class="max-w-4xl mx-auto text-center space-y-10">
+    
+    <!-- Section Header -->
+    <div class="space-y-2">
+      <span class="text-xs uppercase tracking-[0.3em] text-[#8C6D53] font-bold">Petunjuk Arah</span>
+      <h2 class="font-serif-wedding text-3xl sm:text-5xl text-[#4A3525] font-semibold">Lokasi Acara & Barcode Maps</h2>
+      <div class="w-20 h-0.5 bg-gradient-to-r from-transparent via-[#8C6D53] to-transparent mx-auto"></div>
+    </div>
+
+    <!-- Location Card with QR Code / Barcode -->
+    <div class="p-8 sm:p-10 rounded-3xl bg-white border border-[#E5DCC5] shadow-xl shadow-[#6E4F38]/5 grid md:grid-cols-2 gap-8 items-center text-center md:text-left">
+      
+      <!-- QR Code / Barcode View -->
+      <div class="flex flex-col items-center justify-center p-6 rounded-2xl bg-[#FAF6ED] border border-[#E5DCC5] space-y-3">
+        <div class="p-3 bg-white rounded-xl shadow-md border border-[#E5DCC5]">
+          <img 
+            src={qrCodeUrl} 
+            alt="Barcode QR Code Lokasi Maps" 
+            class="w-44 h-44 object-contain rounded-lg"
+            loading="lazy"
+          />
+        </div>
+        <p class="text-xs text-[#7A5C43] font-semibold tracking-wide flex items-center gap-1 mt-2">
+          <svg class="w-4 h-4 text-[#8C6D53]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v1m6 11h2m-6 0h-2v4m0-11v3m0 0h.01M12 12h4.01M16 20h4M4 12h4m12 0h.01M5 8h2a1 1 0 001-1V5a1 1 0 00-1-1H5a1 1 0 00-1 1v2a1 1 0 001 1zm12 0h2a1 1 0 001-1V5a1 1 0 00-1-1h-2a1 1 0 00-1 1v2a1 1 0 001 1zM5 20h2a1 1 0 001-1v-2a1 1 0 00-1-1H5a1 1 0 00-1 1v2a1 1 0 001 1z"/>
+          </svg>
+          Scan Barcode untuk Buka Rute Maps
+        </p>
+      </div>
+
+      <!-- Address Details & Actions -->
+      <div class="space-y-5">
+        <div>
+          <span class="inline-block px-3 py-1 rounded-full bg-[#FAF6ED] text-[#7A5C43] text-xs font-semibold uppercase tracking-wider border border-[#E5DCC5] mb-2">
+            Lokasi Utama
+          </span>
+          <h3 class="font-serif-wedding text-3xl text-[#4A3525] font-bold">Grand Ballroom Hotel Grand Palace</h3>
+          <p class="text-xs sm:text-sm text-[#594433] leading-relaxed mt-2 font-light">
+            Jl. Jendral Sudirman Kav. 88, Senayan, Kebayoran Baru, Jakarta Selatan, DKI Jakarta 12190
+          </p>
+        </div>
+
+        <div class="w-full h-px bg-[#E5DCC5]"></div>
+
+        <p class="text-xs text-[#8C6D53] italic">
+          *Diharapkan untuk mematuhi arahan petunjuk jalan & area parkir yang disediakan oleh petugas lokasi.
+        </p>
+
+        <div>
+          <a 
+            href={googleMapsUrl} 
+            target="_blank" 
+            rel="noopener noreferrer"
+            class="inline-flex items-center justify-center gap-2.5 w-full sm:w-auto px-8 py-3.5 rounded-full bg-gradient-to-r from-[#7A5C43] via-[#6E4F38] to-[#593E2B] text-white font-semibold text-sm shadow-md hover:shadow-lg transition-all duration-300 hover:scale-105"
+          >
+            <svg class="w-5 h-5 text-amber-200 fill-current" viewBox="0 0 24 24">
+              <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
+            </svg>
+            <span>Buka di Google Maps</span>
+          </a>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+</section>

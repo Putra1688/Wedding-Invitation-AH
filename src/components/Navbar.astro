@@ -1,0 +1,35 @@
+---
+// src/components/Navbar.astro
+---
+
+<nav 
+  id="navbar" 
+  class="fixed top-4 left-1/2 -translate-x-1/2 z-40 hidden opacity-0 transition-all duration-700 max-w-lg w-[90%] sm:w-auto"
+>
+  <div class="px-5 py-2.5 rounded-full bg-white/80 backdrop-blur-md border border-[#E5DCC5] shadow-lg shadow-[#6E4F38]/10 flex items-center justify-between sm:justify-center gap-2 sm:gap-6 text-xs sm:text-sm font-medium text-[#6E4F38]">
+    <a href="#mempelai" class="hover:text-[#4A3525] transition-colors py-1 px-2.5 rounded-full hover:bg-[#FAF6ED]">Mempelai</a>
+    <a href="#acara" class="hover:text-[#4A3525] transition-colors py-1 px-2.5 rounded-full hover:bg-[#FAF6ED]">Acara</a>
+    <a href="#lokasi" class="hover:text-[#4A3525] transition-colors py-1 px-2.5 rounded-full hover:bg-[#FAF6ED]">Lokasi</a>
+    <a href="#gift" class="hover:text-[#4A3525] transition-colors py-1 px-2.5 rounded-full hover:bg-[#FAF6ED]">Hadiah</a>
+    
+    <!-- Audio Control Button -->
+    <button 
+      id="btn-audio" 
+      title="Putar / Hentikan Musik"
+      class="p-2 rounded-full bg-[#7A5C43] text-white hover:bg-[#593E2B] transition-all duration-300 shadow-sm flex items-center justify-center cursor-pointer ml-1"
+    >
+      <svg id="icon-music-playing" class="w-4 h-4 animate-spin-slow" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19V6l12-3v13M9 19c0 1.105-1.343 2-3 2s-3-.895-3-2 .895-2 3-2 3 .895 3 2zm12 0c0 1.105-1.343 2-3 2s-3-.895-3-2 .895-2 3-2 3 .895 3 2zM9 10l12-3"/>
+      </svg>
+      <svg id="icon-music-paused" class="w-4 h-4 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5.586 15H4a1 1 0 01-1-1v-4a1 1 0 011-1h1.586l4.707-4.707C10.923 3.663 12 4.109 12 5v14c0 .891-1.077 1.337-1.707.707L5.586 15z" />
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2" />
+      </svg>
+    </button>
+  </div>
+</nav>
+
+<!-- Audio Tag (Soundtrack Instrumentalia) -->
+<audio id="wedding-audio" loop preload="auto">
+  <source src="https://cdn.pixabay.com/download/audio/2022/05/27/audio_1808fbf07a.mp3?filename=romantic-wedding-piano-112191.mp3" type="audio/mpeg" />
+</audio>

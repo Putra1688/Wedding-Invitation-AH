@@ -1,33 +1,253 @@
 ---
-// src/pages/index.astro
-import '../styles/global.css';
+import Layout from '../layouts/Layout.astro';
+import Navbar from '../components/Navbar.astro';
+import SurahSection from '../components/SurahSection.astro';
+import CoupleSection from '../components/CoupleSection.astro';
+import EventSection from '../components/EventSection.astro';
+import LocationSection from '../components/LocationSection.astro';
+import GiftSection from '../components/GiftSection.astro';
+import FooterSection from '../components/FooterSection.astro';
+
+// Target tanggal pernikahan (contoh: 12 Desember 2026 09:00:00)
+const weddingDate = "2026-12-12T09:00:00";
+const groomName = "Adam";
+const brideName = "Hawa";
 ---
 
-<html lang="id">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width" />
-    <title>Uji Coba Tailwind Astro</title>
-  </head>
-  <body class="bg-slate-900 text-white min-h-screen flex flex-col items-center justify-center p-4">
-    
-    <div class="max-w-md w-full bg-slate-800 border border-slate-700 rounded-2xl p-6 shadow-2xl text-center space-y-4">
-      <span class="inline-block px-3 py-1 rounded-full bg-emerald-500/10 text-emerald-400 text-xs font-semibold uppercase tracking-widest border border-emerald-500/20">
-        Status Tailwind CSS
-      </span>
-      
-      <h1 class="text-3xl font-bold tracking-tight text-white">
-        Tailwind Berhasil Aktif! 🎉
-      </h1>
-      
-      <p class="text-slate-400 text-sm leading-relaxed">
-        Jika teks ini berada di tengah, memiliki latar gelap, dan tombol di bawah berwarna emas saat di-hover, berarti Tailwind CSS sudah bekerja sempurna di Astro.
-      </p>
+<Layout title={`Undangan Pernikahan - ${groomName} & ${brideName}`}>
+  
+  <!-- NAVBAR (FLOATING & HIDDEN UNTIL COVER IS UNLOCKED) -->
+  <Navbar />
 
-      <button class="w-full py-3 rounded-xl bg-amber-400 text-slate-950 font-medium text-sm hover:bg-amber-300 transition-all duration-300 transform active:scale-95 shadow-lg shadow-amber-400/10">
-        Tombol Pengujian
-      </button>
+  <!-- COVER / HERO SECTION (FULLSCREEN & SCROLL LOCKED INITIALLY) -->
+  <!-- PALETTE: KREM 50% (#FAF6ED) | PUTIH 30% (#FFFFFF) | COKLAT 20% (#4A3525, #6E4F38, #8C6D53) -->
+  <section 
+    id="cover-screen" 
+    class="fixed inset-0 z-50 flex flex-col items-center justify-between p-6 sm:p-10 text-center overflow-y-auto transition-all duration-1000 ease-in-out bg-gradient-to-b from-[#FAF6ED] via-[#F4EBD9] to-[#E9DDC3] border-b border-[#8C6D53]/20"
+  >
+    <!-- Background Soft Decorative Glows & Ornaments -->
+    <div class="absolute inset-0 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-white/70 via-transparent to-transparent pointer-events-none"></div>
+    <div class="absolute top-0 left-0 w-full h-full bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-[#8C6D53]/10 via-transparent to-transparent pointer-events-none"></div>
+
+    <!-- Ornate Outer Frame -->
+    <div class="absolute inset-4 sm:inset-6 border border-[#8C6D53]/25 rounded-3xl pointer-events-none flex flex-col justify-between p-3">
+      <div class="flex justify-between items-center text-[#8C6D53]/40 text-xs">
+        <span>✦</span><span>✦</span>
+      </div>
+      <div class="flex justify-between items-center text-[#8C6D53]/40 text-xs">
+        <span>✦</span><span>✦</span>
+      </div>
     </div>
 
-  </body>
-</html>
+    <!-- Top Header & Salam -->
+    <div class="relative z-10 pt-6 animate-fade-in">
+      <div class="flex justify-center items-center gap-3 text-[#7A5C43] mb-2">
+        <div class="h-px w-12 bg-gradient-to-r from-transparent to-[#8C6D53]"></div>
+        <svg class="w-5 h-5 text-[#6E4F38] fill-current" viewBox="0 0 24 24">
+          <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
+        </svg>
+        <div class="h-px w-12 bg-gradient-to-l from-transparent to-[#8C6D53]"></div>
+      </div>
+      <p class="text-xs sm:text-sm tracking-[0.35em] text-[#7A5C43] uppercase font-semibold">
+        Undangan Pernikahan
+      </p>
+    </div>
+
+    <!-- Center Content: Names, Message & Countdown -->
+    <div class="relative z-10 my-auto py-6 max-w-2xl w-full flex flex-col items-center">
+      
+      <!-- Greeting Message -->
+      <p class="text-[#6E4F38] text-sm sm:text-base font-serif-wedding italic mb-2">
+        Assalamu’alaikum Warahmatullahi Wabarakatuh
+      </p>
+      <p class="text-[#594433] text-xs sm:text-sm max-w-md mx-auto leading-relaxed mb-6 font-light">
+        Momen penuh kebahagiaan dan rasa syukur. Kami mengundang Bapak/Ibu/Saudara/i untuk menyaksikan & mendoakan pernikahan kami:
+      </p>
+
+      <!-- Bride & Groom Names -->
+      <div class="my-2 py-3 px-6 rounded-3xl bg-white/60 backdrop-blur-md border border-[#E5DCC5] shadow-sm">
+        <h1 class="font-serif-wedding text-4xl sm:text-6xl md:text-7xl font-semibold text-[#4A3525] tracking-wide">
+          {groomName} <span class="font-script text-[#8C6D53] text-4xl sm:text-6xl md:text-7xl mx-1 sm:mx-2 font-normal">&</span> {brideName}
+        </h1>
+      </div>
+
+      <!-- Guest Card (Putih 30%) -->
+      <div class="mt-6 mb-6 p-4 rounded-2xl bg-white shadow-lg shadow-[#6E4F38]/5 border border-[#E8DFC8] max-w-sm w-full">
+        <span class="inline-block px-3 py-0.5 rounded-full bg-[#FAF6ED] text-[#7A5C43] text-[11px] font-semibold uppercase tracking-wider border border-[#E5DCC5] mb-1.5">
+          Kepada Yth. Bapak/Ibu/Saudara/i
+        </span>
+        <p id="guest-name" class="text-lg sm:text-xl font-bold text-[#4A3525] tracking-wide mt-0.5">
+          Tamu Undangan
+        </p>
+      </div>
+
+      <!-- COUNTDOWN TIMER (Krem 50% & Putih 30% with Coklat 20% Text) -->
+      <div class="w-full max-w-md my-2">
+        <p class="text-xs uppercase tracking-[0.25em] text-[#7A5C43] mb-3 font-semibold">Menghitung Hari Pelaksanaan</p>
+        <div class="grid grid-cols-4 gap-2 sm:gap-3 text-center">
+          <div class="p-3 sm:p-4 rounded-2xl bg-white/90 border border-[#E5DCC5] shadow-md shadow-[#6E4F38]/5">
+            <span id="cd-days" class="block font-serif-wedding text-2xl sm:text-4xl font-bold text-[#4A3525]">00</span>
+            <span class="text-[10px] sm:text-xs text-[#8C6D53] font-medium uppercase tracking-widest mt-1 block">Hari</span>
+          </div>
+          <div class="p-3 sm:p-4 rounded-2xl bg-white/90 border border-[#E5DCC5] shadow-md shadow-[#6E4F38]/5">
+            <span id="cd-hours" class="block font-serif-wedding text-2xl sm:text-4xl font-bold text-[#4A3525]">00</span>
+            <span class="text-[10px] sm:text-xs text-[#8C6D53] font-medium uppercase tracking-widest mt-1 block">Jam</span>
+          </div>
+          <div class="p-3 sm:p-4 rounded-2xl bg-white/90 border border-[#E5DCC5] shadow-md shadow-[#6E4F38]/5">
+            <span id="cd-minutes" class="block font-serif-wedding text-2xl sm:text-4xl font-bold text-[#4A3525]">00</span>
+            <span class="text-[10px] sm:text-xs text-[#8C6D53] font-medium uppercase tracking-widest mt-1 block">Menit</span>
+          </div>
+          <div class="p-3 sm:p-4 rounded-2xl bg-white/90 border border-[#E5DCC5] shadow-md shadow-[#6E4F38]/5">
+            <span id="cd-seconds" class="block font-serif-wedding text-2xl sm:text-4xl font-bold text-[#4A3525]">00</span>
+            <span class="text-[10px] sm:text-xs text-[#8C6D53] font-medium uppercase tracking-widest mt-1 block">Detik</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- CTA Button to Unlock Scroll (Coklat 20% Primary Accent) -->
+    <div class="relative z-10 pb-4">
+      <button 
+        id="btn-open-invitation"
+        class="group relative inline-flex items-center gap-3 px-8 py-3.5 rounded-full bg-gradient-to-r from-[#7A5C43] via-[#6E4F38] to-[#593E2B] text-white font-semibold text-sm sm:text-base tracking-wide shadow-[0_10px_25px_rgba(110,79,56,0.25)] hover:shadow-[0_15px_30px_rgba(110,79,56,0.4)] transition-all duration-300 hover:scale-105 active:scale-95 cursor-pointer"
+      >
+        <svg class="w-5 h-5 text-amber-100 transition-transform duration-300 group-hover:rotate-12" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 002-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
+        </svg>
+        <span>Lihat Undangan</span>
+        <svg class="w-4 h-4 text-amber-100 transition-transform duration-300 group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/>
+        </svg>
+      </button>
+      <p class="text-[11px] text-[#8C6D53] mt-2 font-medium">Klik tombol di atas untuk membuka seluruh isi undangan</p>
+    </div>
+  </section>
+
+  <!-- MAIN CONTENT SECTION (ACCESSIBLE AFTER UNLOCKING COVER) -->
+  <main id="main-content" class="min-h-screen bg-[#FAF6ED] text-[#4A3525] relative">
+    
+    <!-- 1. Surah Ar-Rum Ayat 21 -->
+    <SurahSection />
+
+    <!-- 2. Pasangan Mempelai -->
+    <CoupleSection groomName={groomName} brideName={brideName} />
+
+    <!-- 3. Rangkaian Acara (Akad & Resepsi) -->
+    <EventSection />
+
+    <!-- 4. Lokasi & Barcode Maps -->
+    <LocationSection />
+
+    <!-- 5. Amplop Digital & Gift -->
+    <GiftSection />
+
+    <!-- 6. Footer & Ucapan Terima Kasih -->
+    <FooterSection groomName={groomName} brideName={brideName} />
+
+  </main>
+</Layout>
+
+<script is:inline define:vars={{ weddingDate }}>
+  document.addEventListener('DOMContentLoaded', () => {
+    // 1. Ambil Nama Tamu dari URL Parameter (?to=Nama+Tamu)
+    const urlParams = new URLSearchParams(window.location.search);
+    const guestParam = urlParams.get('to');
+    const guestNameEl = document.getElementById('guest-name');
+    if (guestParam && guestNameEl) {
+      guestNameEl.textContent = guestParam;
+    }
+
+    // 2. Countdown Timer Logic
+    const targetTime = new Date(weddingDate).getTime();
+
+    function updateCountdown() {
+      const now = new Date().getTime();
+      const difference = targetTime - now;
+
+      if (difference <= 0) {
+        document.getElementById('cd-days').textContent = '00';
+        document.getElementById('cd-hours').textContent = '00';
+        document.getElementById('cd-minutes').textContent = '00';
+        document.getElementById('cd-seconds').textContent = '00';
+        return;
+      }
+
+      const days = Math.floor(difference / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      const minutes = Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60));
+      const seconds = Math.floor((difference % (1000 * 60)) / 1000);
+
+      document.getElementById('cd-days').textContent = days < 10 ? '0' + days : days;
+      document.getElementById('cd-hours').textContent = hours < 10 ? '0' + hours : hours;
+      document.getElementById('cd-minutes').textContent = minutes < 10 ? '0' + minutes : minutes;
+      document.getElementById('cd-seconds').textContent = seconds < 10 ? '0' + seconds : seconds;
+    }
+
+    updateCountdown();
+    setInterval(updateCountdown, 1000);
+
+    // 3. Audio & Navbar Unlock Logic
+    const btnOpen = document.getElementById('btn-open-invitation');
+    const coverScreen = document.getElementById('cover-screen');
+    const mainContent = document.getElementById('main-content');
+    const navbar = document.getElementById('navbar');
+    const weddingAudio = document.getElementById('wedding-audio');
+    const btnAudio = document.getElementById('btn-audio');
+    const iconPlaying = document.getElementById('icon-music-playing');
+    const iconPaused = document.getElementById('icon-music-paused');
+
+    let isAudioPlaying = false;
+
+    function toggleAudio() {
+      if (!weddingAudio) return;
+      if (isAudioPlaying) {
+        weddingAudio.pause();
+        isAudioPlaying = false;
+        if (iconPlaying) iconPlaying.classList.add('hidden');
+        if (iconPaused) iconPaused.classList.remove('hidden');
+      } else {
+        weddingAudio.play().then(() => {
+          isAudioPlaying = true;
+          if (iconPlaying) iconPlaying.classList.remove('hidden');
+          if (iconPaused) iconPaused.classList.add('hidden');
+        }).catch(err => console.log('Audio autoplay policy:', err));
+      }
+    }
+
+    if (btnAudio) {
+      btnAudio.addEventListener('click', toggleAudio);
+    }
+
+    if (btnOpen && coverScreen) {
+      btnOpen.addEventListener('click', () => {
+        // Unlock body scroll
+        document.body.classList.remove('lock-scroll');
+
+        // Smooth transition out cover screen
+        coverScreen.classList.add('opacity-0', 'pointer-events-none', '-translate-y-full');
+
+        // Tampilkan & aktifkan Navbar setelah cover dibuka!
+        if (navbar) {
+          navbar.classList.remove('hidden');
+          setTimeout(() => {
+            navbar.classList.remove('opacity-0');
+          }, 100);
+        }
+
+        // Putar audio secara otomatis saat undangan dibuka
+        toggleAudio();
+
+        // Scroll to main content smoothly
+        if (mainContent) {
+          mainContent.scrollIntoView({ behavior: 'smooth' });
+        }
+
+        // Hide cover screen completely after transition completes
+        setTimeout(() => {
+          coverScreen.style.display = 'none';
+        }, 1000);
+      });
+    }
+  });
+</script>

@@ -1,0 +1,37 @@
+---
+// src/components/SurahSection.astro
+---
+
+<section id="ayat" class="py-16 sm:py-24 px-4 bg-gradient-to-b from-[#FAF6ED] via-white to-[#FAF6ED] relative overflow-hidden">
+  <!-- Subtle Background Ornaments -->
+  <div class="absolute -top-24 -left-24 w-72 h-72 bg-[#8C6D53]/5 rounded-full blur-3xl pointer-events-none"></div>
+  <div class="absolute -bottom-24 -right-24 w-72 h-72 bg-[#8C6D53]/5 rounded-full blur-3xl pointer-events-none"></div>
+
+  <div class="max-w-3xl mx-auto text-center space-y-6 relative z-10">
+    <!-- Ornate Top Icon -->
+    <div class="flex justify-center items-center gap-3 text-[#8C6D53]">
+      <div class="h-px w-12 bg-gradient-to-r from-transparent to-[#8C6D53]"></div>
+      <svg class="w-6 h-6 text-[#7A5C43] fill-current" viewBox="0 0 24 24">
+        <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
+      </svg>
+      <div class="h-px w-12 bg-gradient-to-l from-transparent to-[#8C6D53]"></div>
+    </div>
+
+    <span class="text-xs uppercase tracking-[0.3em] text-[#8C6D53] font-semibold block">QS. Ar-Rum : 21</span>
+
+    <!-- Surah Card (Putih 30%) -->
+    <div class="p-6 sm:p-10 rounded-3xl bg-white border border-[#E5DCC5] shadow-xl shadow-[#6E4F38]/5 space-y-6">
+      <!-- Arabic Text -->
+      <p class="text-xl sm:text-3xl text-[#4A3525] font-serif leading-relaxed text-center dir-rtl font-semibold" style="font-family: 'Traditional Arabic', 'Amiri', serif;">
+        وَمِنْ آيَاتِهِ أَنْ خَلَقَ لَكُمْ مِنْ أَنْفُسِكُمْ أَزْوَاجًا لِتَسْكُنُوا إِلَيْهَا وَجَعَلَ بَيْنَكُمْ مَوَدَّةً وَرَحْمَةً ۚ إِنَّ فِي ذَٰلِك لَآيَاتٍ لِقَوْمٍ يَتَفَكَّرُونَ
+      </p>
+
+      <div class="w-20 h-px bg-[#E5DCC5] mx-auto"></div>
+
+      <!-- Indonesian Translation -->
+      <p class="text-xs sm:text-sm text-[#594433] leading-relaxed italic font-light max-w-xl mx-auto">
+        "Dan di antara tanda-tanda (kebesaran)-Nya ialah Dia menciptakan pasangan-pasangan untukmu dari mejelismu sendiri, agar kamu cenderung dan merasa tenteram kepadanya, dan Dia menjadikan di antaramu rasa kasih dan sayang. Sungguh, pada yang demikian itu benar-benar terdapat tanda-tanda (kebesaran Allah) bagi kaum yang berpikir."
+      </p>
+    </div>
+  </div>
+</section>

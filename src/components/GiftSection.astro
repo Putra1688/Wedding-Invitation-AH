@@ -1,0 +1,129 @@
+---
+// src/components/GiftSection.astro
+---
+
+<section id="gift" class="py-16 sm:py-24 px-4 bg-gradient-to-b from-[#FAF6ED] via-white to-[#FAF6ED]">
+  <div class="max-w-4xl mx-auto text-center space-y-10">
+    
+    <!-- Section Header -->
+    <div class="space-y-2">
+      <span class="text-xs uppercase tracking-[0.3em] text-[#8C6D53] font-bold">Amplop Digital</span>
+      <h2 class="font-serif-wedding text-3xl sm:text-5xl text-[#4A3525] font-semibold">Tanda Kasih & Hadiah</h2>
+      <div class="w-20 h-0.5 bg-gradient-to-r from-transparent via-[#8C6D53] to-transparent mx-auto"></div>
+    </div>
+
+    <p class="text-xs sm:text-sm text-[#594433] max-w-xl mx-auto leading-relaxed font-light">
+      Doa restu Anda merupakan karunia terindah bagi kami. Namun jika Anda ingin memberikan tanda kasih secara digital, Anda dapat menyalurkannya melalui rekening berikut:
+    </p>
+
+    <!-- Bank Cards Grid -->
+    <div class="grid md:grid-cols-2 gap-6 pt-2">
+      
+      <!-- Bank BCA Card -->
+      <div class="p-6 sm:p-8 rounded-3xl bg-white border border-[#E5DCC5] shadow-lg shadow-[#6E4F38]/5 space-y-4 text-center relative overflow-hidden group">
+        <div class="flex justify-between items-center border-b border-[#E5DCC5] pb-3">
+          <span class="font-bold text-lg text-[#005E9E] tracking-wider">BANK BCA</span>
+          <span class="text-xs text-[#8C6D53] font-semibold uppercase">Kartu Rekening</span>
+        </div>
+        
+        <div class="space-y-1 py-2">
+          <p class="text-xs text-[#7A5C43] uppercase tracking-wider">Nomor Rekening</p>
+          <p id-[#bca-no]" class="text-2xl sm:text-3xl font-mono font-bold text-[#4A3525] tracking-wider">1234 5678 90</p>
+          <p class="text-sm text-[#594433] font-medium pt-1">a.n. Adam Putra</p>
+        </div>
+
+        <button 
+          class="btn-copy inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-[#FAF6ED] hover:bg-[#EFE6D5] text-[#6E4F38] text-xs font-semibold border border-[#E5DCC5] transition-all duration-300 hover:scale-105 active:scale-95 w-full justify-center cursor-pointer"
+          data-copy="1234567890"
+          data-bank="BCA"
+        >
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 5H6a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2v-1M8 5a2 2 0 002 2h2a2 2 0 002-2M8 5a2 2 0 012-2h2a2 2 0 012 2m0 0h2a2 2 0 012 2v3m2 4H10m0 0l3-3m-3 3l3 3"/>
+          </svg>
+          <span>Salin No. Rekening BCA</span>
+        </button>
+      </div>
+
+      <!-- Bank Mandiri Card -->
+      <div class="p-6 sm:p-8 rounded-3xl bg-white border border-[#E5DCC5] shadow-lg shadow-[#6E4F38]/5 space-y-4 text-center relative overflow-hidden group">
+        <div class="flex justify-between items-center border-b border-[#E5DCC5] pb-3">
+          <span class="font-bold text-lg text-[#003B6D] tracking-wider">BANK MANDIRI</span>
+          <span class="text-xs text-[#8C6D53] font-semibold uppercase">Kartu Rekening</span>
+        </div>
+        
+        <div class="space-y-1 py-2">
+          <p class="text-xs text-[#7A5C43] uppercase tracking-wider">Nomor Rekening</p>
+          <p id="mandiri-no" class="text-2xl sm:text-3xl font-mono font-bold text-[#4A3525] tracking-wider">0987 6543 21</p>
+          <p class="text-sm text-[#594433] font-medium pt-1">a.n. Hawa Putri</p>
+        </div>
+
+        <button 
+          class="btn-copy inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-[#FAF6ED] hover:bg-[#EFE6D5] text-[#6E4F38] text-xs font-semibold border border-[#E5DCC5] transition-all duration-300 hover:scale-105 active:scale-95 w-full justify-center cursor-pointer"
+          data-copy="0987654321"
+          data-bank="Mandiri"
+        >
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 5H6a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2v-1M8 5a2 2 0 002 2h2a2 2 0 002-2M8 5a2 2 0 012-2h2a2 2 0 012 2m0 0h2a2 2 0 012 2v3m2 4H10m0 0l3-3m-3 3l3 3"/>
+          </svg>
+          <span>Salin No. Rekening Mandiri</span>
+        </button>
+      </div>
+
+    </div>
+
+    <!-- Physical Gift Address Option -->
+    <div class="p-6 rounded-3xl bg-[#FAF6ED] border border-[#E5DCC5] max-w-xl mx-auto space-y-2 text-center">
+      <p class="text-xs text-[#8C6D53] font-bold uppercase tracking-wider">📦 Kirim Hadiah Fisik</p>
+      <p class="text-xs text-[#594433] leading-relaxed">
+        Alamat Pengiriman Kado: <br />
+        <span class="font-semibold text-[#4A3525]">Jl. Kebayoran Baru No. 12, Jakarta Selatan 12190 (u.p Adam & Hawa)</span>
+      </p>
+    </div>
+
+  </div>
+</section>
+
+<!-- Toast Notification -->
+<div 
+  id="toast-copy" 
+  class="fixed bottom-8 left-1/2 -translate-x-1/2 z-50 hidden opacity-0 transition-all duration-300 bg-[#4A3525] text-white text-xs sm:text-sm font-medium px-6 py-3 rounded-full shadow-2xl flex items-center gap-2 border border-[#8C6D53]"
+>
+  <svg class="w-4 h-4 text-emerald-400 fill-current" viewBox="0 0 20 20">
+    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+  </svg>
+  <span id="toast-text">Nomor rekening berhasil disalin!</span>
+</div>
+
+<script is:inline>
+  document.addEventListener('DOMContentLoaded', () => {
+    const copyBtns = document.querySelectorAll('.btn-copy');
+    const toast = document.getElementById('toast-copy');
+    const toastText = document.getElementById('toast-text');
+
+    copyBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        const textToCopy = btn.getAttribute('data-copy');
+        const bankName = btn.getAttribute('data-bank');
+        
+        if (textToCopy) {
+          navigator.clipboard.writeText(textToCopy).then(() => {
+            if (toast && toastText) {
+              toastText.textContent = `Nomor rekening ${bankName} (${textToCopy}) berhasil disalin!`;
+              toast.classList.remove('hidden');
+              setTimeout(() => {
+                toast.classList.remove('opacity-0');
+              }, 10);
+
+              setTimeout(() => {
+                toast.classList.add('opacity-0');
+                setTimeout(() => {
+                  toast.classList.add('hidden');
+                }, 300);
+              }, 3000);
+            }
+          });
+        }
+      });
+    });
+  });
+</script>
