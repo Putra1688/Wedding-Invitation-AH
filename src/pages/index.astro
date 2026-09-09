@@ -1,0 +1,33 @@
+---
+// src/pages/index.astro
+import '../styles/global.css';
+---
+
+<html lang="id">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>Uji Coba Tailwind Astro</title>
+  </head>
+  <body class="bg-slate-900 text-white min-h-screen flex flex-col items-center justify-center p-4">
+    
+    <div class="max-w-md w-full bg-slate-800 border border-slate-700 rounded-2xl p-6 shadow-2xl text-center space-y-4">
+      <span class="inline-block px-3 py-1 rounded-full bg-emerald-500/10 text-emerald-400 text-xs font-semibold uppercase tracking-widest border border-emerald-500/20">
+        Status Tailwind CSS
+      </span>
+      
+      <h1 class="text-3xl font-bold tracking-tight text-white">
+        Tailwind Berhasil Aktif! 🎉
+      </h1>
+      
+      <p class="text-slate-400 text-sm leading-relaxed">
+        Jika teks ini berada di tengah, memiliki latar gelap, dan tombol di bawah berwarna emas saat di-hover, berarti Tailwind CSS sudah bekerja sempurna di Astro.
+      </p>
+
+      <button class="w-full py-3 rounded-xl bg-amber-400 text-slate-950 font-medium text-sm hover:bg-amber-300 transition-all duration-300 transform active:scale-95 shadow-lg shadow-amber-400/10">
+        Tombol Pengujian
+      </button>
+    </div>
+
+  </body>
+</html>
