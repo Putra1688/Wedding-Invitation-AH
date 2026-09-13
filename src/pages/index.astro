@@ -1,7 +1,6 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import Navbar from '../components/Navbar.astro';
-import SurahSection from '../components/SurahSection.astro';
 import CoupleSection from '../components/CoupleSection.astro';
 import EventSection from '../components/EventSection.astro';
 import LocationSection from '../components/LocationSection.astro';
@@ -61,7 +60,7 @@ const brideName = "Dhaniyah";
         Assalamu’alaikum Warahmatullahi Wabarakatuh
       </p>
       <p class="text-[#594433] text-[11px] sm:text-xs md:text-sm max-w-md mx-auto leading-tight sm:leading-relaxed mb-3 sm:mb-4 font-light">
-        Momen penuh kebahagiaan dan rasa syukur. Kami mengundang Bapak/Ibu/Saudara/i untuk menyaksikan & mendoakan pernikahan kami:
+        Dengan penuh kebahagiaan dan rasa syukur. Kami mengundang untuk menyaksikan & mendoakan pernikahan anak kami:
       </p>
 
       <!-- Bride & Groom Names -->
@@ -125,11 +124,8 @@ const brideName = "Dhaniyah";
   <!-- MAIN CONTENT SECTION (ACCESSIBLE AFTER UNLOCKING COVER) -->
   <main id="main-content" class="min-h-screen bg-[#FAF6ED] text-[#4A3525] relative">
     
-    <!-- 1. Pasangan Mempelai -->
+    <!-- 1. Acara Pernikahan & Mempelai -->
     <CoupleSection groomName={groomName} brideName={brideName} />
-
-    <!-- 2. Surah Ar-Rum Ayat 21 -->
-    <SurahSection />
 
     <!-- 3. Rangkaian Acara (Akad & Resepsi) -->
     <EventSection />
@@ -138,7 +134,7 @@ const brideName = "Dhaniyah";
     <LocationSection />
 
     <!-- 5. Amplop Digital & Gift -->
-    <GiftSection />
+    <!-- <GiftSection /> -->
 
     <!-- 6. Footer & Ucapan Terima Kasih -->
     <FooterSection groomName={groomName} brideName={brideName} />

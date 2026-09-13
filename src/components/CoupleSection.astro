@@ -3,87 +3,132 @@
 interface Props {
   groomName?: string;
   brideName?: string;
+  groomPhoto?: string;
+  bridePhoto?: string;
 }
 
-const { groomName = "Adam", brideName = "Hawa" } = Astro.props;
+const { 
+  groomName = "Arik", 
+  brideName = "Monica",
+  groomPhoto = "/image/pria.jpg",
+  bridePhoto = "/image/wanita.jpg"
+} = Astro.props;
 ---
 
-<section id="mempelai" class="py-16 sm:py-24 px-4 bg-[#FAF6ED] relative">
-  <div class="max-w-4xl mx-auto text-center space-y-12">
+<section id="mempelai" class="py-16 sm:py-24 px-4 bg-gradient-to-b from-[#FAF6ED] via-white to-[#FAF6ED] relative overflow-hidden">
+  <!-- Background Ornaments -->
+  <div class="absolute -top-32 -left-32 w-96 h-96 bg-[#8C6D53]/5 rounded-full blur-3xl pointer-events-none"></div>
+  <div class="absolute -bottom-32 -right-32 w-96 h-96 bg-[#8C6D53]/5 rounded-full blur-3xl pointer-events-none"></div>
+
+  <div class="max-w-6xl mx-auto text-center space-y-10 sm:space-y-12 relative z-10">
     
     <!-- Section Header -->
-    <div class="space-y-2">
-      <span class="text-xs uppercase tracking-[0.3em] text-[#8C6D53] font-bold">Pasangan Mempelai</span>
-      <h2 class="font-serif-wedding text-3xl sm:text-5xl text-[#4A3525] font-semibold">Mempelai Pria & Wanita</h2>
-      <div class="w-20 h-0.5 bg-gradient-to-r from-transparent via-[#8C6D53] to-transparent mx-auto"></div>
+    <div class="space-y-3 max-w-2xl mx-auto">
+      <span class="text-xs uppercase tracking-[0.35em] text-[#8C6D53] font-bold block">Undangan Pernikahan</span>
+      <h2 class="font-serif-wedding text-3xl sm:text-5xl text-[#4A3525] font-semibold">
+        Acara Pernikahan
+      </h2>
+      <div class="w-24 h-0.5 bg-gradient-to-r from-transparent via-[#8C6D53]/60 to-transparent mx-auto my-2"></div>
+      
+      <!-- Date & Location -->
+      <p class="font-bold text-[#4A3525] text-sm sm:text-base pt-1">
+        Diselenggarakan pada Rabu, 15 November 2026 di Kota Malang, Jawa Timur.
+      </p>
+      <p class="text-[#594433] text-xs sm:text-sm max-w-xl mx-auto leading-relaxed font-normal opacity-90">
+        Dengan memohon Rahmat & Ridho Allah SWT, kami bermaksud untuk mengundang Bapak/Ibu, Saudara/i untuk hadir pada acara pernikahan anak kami
+      </p>
     </div>
 
-    <!-- Couple Cards Grid -->
-    <div class="grid md:grid-cols-2 gap-8 items-center pt-4">
+    <!-- UNIFIED RESPONSIVE COUPLE CONTAINER -->
+    <div class="flex flex-col md:flex-row items-center justify-center gap-6 md:gap-4 lg:gap-8 max-w-5xl mx-auto py-4">
       
-      <!-- Groom Card -->
-      <div class="p-8 sm:p-10 rounded-3xl bg-white border border-[#E5DCC5] shadow-lg shadow-[#6E4F38]/5 space-y-4 hover:shadow-xl transition-all duration-300 group">
-        <!-- Avatar Initial Badge -->
-        <div class="w-24 h-24 rounded-full bg-[#FAF6ED] border-2 border-[#8C6D53]/40 mx-auto flex items-center justify-center text-[#7A5C43] font-serif-wedding text-4xl font-bold group-hover:scale-105 transition-transform duration-300 shadow-inner">
-          A
+      <!-- Groom Section (Text di Kiri, Avatar di Kanan) -->
+      <div class="flex items-center justify-end gap-3 sm:gap-4 w-full md:w-auto text-right min-w-0">
+        <!-- Groom Text -->
+        <div class="flex-1 md:flex-initial space-y-1 min-w-0">
+          <h3 class="font-script text-xl sm:text-2xl md:text-3xl lg:text-4xl text-[#7A5C43] font-normal leading-snug whitespace-nowrap">
+            {groomName} Wahyu Pratama
+          </h3>
+          <p class="text-[11px] sm:text-xs lg:text-sm text-[#594433] leading-relaxed font-medium">
+            Putra Pertama dari Bpk. Imam Basori <br />dan Ibu Syarifatun
+          </p>
         </div>
-        <div>
-          <span class="text-xs text-[#8C6D53] font-semibold tracking-widest uppercase block mb-1">Mempelai Pria</span>
-          <h3 class="font-serif-wedding text-3xl sm:text-4xl text-[#4A3525] font-bold">{groomName} Putra</h3>
-        </div>
-        <div class="w-12 h-px bg-[#E5DCC5] mx-auto my-2"></div>
-        <div class="space-y-1">
-          <p class="text-xs text-[#7A5C43] font-semibold uppercase tracking-wider">Putra Pertama Dari</p>
-          <p class="text-sm text-[#594433] font-medium">Bpk. H. Ahmad & Ibu Hj. Aminah</p>
-        </div>
-        <!-- Instagram Tag -->
-        <div class="pt-2">
-          <a 
-            href="https://instagram.com" 
-            target="_blank" 
-            rel="noopener noreferrer"
-            class="inline-flex items-center gap-1.5 px-4 py-1.5 rounded-full bg-[#FAF6ED] hover:bg-[#EFE6D5] text-[#6E4F38] text-xs font-medium border border-[#E5DCC5] transition-colors"
-          >
-            <svg class="w-3.5 h-3.5 fill-current" viewBox="0 0 24 24">
-              <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
-            </svg>
-            <span>@adam_official</span>
-          </a>
+
+        <!-- Groom Avatar / Photo Frame -->
+        <div class="w-20 h-20 sm:w-24 sm:h-24 lg:w-32 lg:h-32 rounded-full bg-gradient-to-b from-[#FAF6ED] to-[#F5EBD9] border-4 border-white shadow-md flex items-center justify-center text-[#7A5C43] font-serif-wedding text-2xl sm:text-3xl lg:text-4xl font-bold overflow-hidden shrink-0 relative">
+          <img 
+            src={groomPhoto} 
+            alt={`Foto ${groomName}`} 
+            class="w-full h-full object-cover"
+            onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
+          />
+          <span class="hidden w-full h-full items-center justify-center">{groomName ? groomName.charAt(0) : "A"}</span>
         </div>
       </div>
 
-      <!-- Bride Card -->
-      <div class="p-8 sm:p-10 rounded-3xl bg-white border border-[#E5DCC5] shadow-lg shadow-[#6E4F38]/5 space-y-4 hover:shadow-xl transition-all duration-300 group">
-        <!-- Avatar Initial Badge -->
-        <div class="w-24 h-24 rounded-full bg-[#FAF6ED] border-2 border-[#8C6D53]/40 mx-auto flex items-center justify-center text-[#7A5C43] font-serif-wedding text-4xl font-bold group-hover:scale-105 transition-transform duration-300 shadow-inner">
-          H
+      <!-- Small Heart Badge (Desktop Only) -->
+      <div class="hidden md:flex w-9 h-9 lg:w-10 lg:h-10 rounded-full bg-white border border-[#E5DCC5] shadow-md items-center justify-center text-[#8C6D53] shrink-0 -mx-3 lg:-mx-4 z-20">
+        <svg class="w-4 h-4 lg:w-5 lg:h-5 text-[#8C6D53] fill-current" viewBox="0 0 24 24">
+          <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
+        </svg>
+      </div>
+
+      <!-- Bride Section (Avatar di Kiri, Text di Kanan) -->
+      <div class="flex items-center justify-start gap-3 sm:gap-4 w-full md:w-auto text-left min-w-0">
+        <!-- Bride Avatar / Photo Frame -->
+        <div class="w-20 h-20 sm:w-24 sm:h-24 lg:w-32 lg:h-32 rounded-full bg-gradient-to-b from-[#FAF6ED] to-[#F5EBD9] border-4 border-white shadow-md flex items-center justify-center text-[#7A5C43] font-serif-wedding text-2xl sm:text-3xl lg:text-4xl font-bold overflow-hidden shrink-0 relative">
+          <img 
+            src={bridePhoto} 
+            alt={`Foto ${brideName}`} 
+            class="w-full h-full object-cover"
+            onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
+          />
+          <span class="hidden w-full h-full items-center justify-center">{brideName ? brideName.charAt(0) : "M"}</span>
         </div>
-        <div>
-          <span class="text-xs text-[#8C6D53] font-semibold tracking-widest uppercase block mb-1">Mempelai Wanita</span>
-          <h3 class="font-serif-wedding text-3xl sm:text-4xl text-[#4A3525] font-bold">{brideName} Putri</h3>
-        </div>
-        <div class="w-12 h-px bg-[#E5DCC5] mx-auto my-2"></div>
-        <div class="space-y-1">
-          <p class="text-xs text-[#7A5C43] font-semibold uppercase tracking-wider">Putri Pertama Dari</p>
-          <p class="text-sm text-[#594433] font-medium">Bpk. H. Hasan & Ibu Hj. Khadijah</p>
-        </div>
-        <!-- Instagram Tag -->
-        <div class="pt-2">
-          <a 
-            href="https://instagram.com" 
-            target="_blank" 
-            rel="noopener noreferrer"
-            class="inline-flex items-center gap-1.5 px-4 py-1.5 rounded-full bg-[#FAF6ED] hover:bg-[#EFE6D5] text-[#6E4F38] text-xs font-medium border border-[#E5DCC5] transition-colors"
-          >
-            <svg class="w-3.5 h-3.5 fill-current" viewBox="0 0 24 24">
-              <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
-            </svg>
-            <span>@hawa_official</span>
-          </a>
+
+        <!-- Bride Text -->
+        <div class="flex-1 md:flex-initial space-y-1 min-w-0">
+          <h3 class="font-script text-xl sm:text-2xl md:text-3xl lg:text-4xl text-[#7A5C43] font-normal leading-snug whitespace-nowrap">
+            Monica Ramadhaniyah
+          </h3>
+          <p class="text-[11px] sm:text-xs lg:text-sm text-[#594433] leading-relaxed font-medium">
+            Putri dari Ust. H. Syamsul Huda <br />dan Ning Hj. Nikmatuz Zuhriyah
+          </p>
         </div>
       </div>
 
+    </div>
+
+    <!-- Surah Section (Di Bawah Mempelai) -->
+    <div class="space-y-6 pt-6 max-w-3xl mx-auto">
+      <p class="text-[#594433] text-xs sm:text-sm max-w-xl mx-auto leading-relaxed font-normal opacity-90">
+        Yang akan diselenggarakan pada <strong class="font-bold text-[#4A3525]">Rabu, 15 November 2026</strong> di <strong class="font-bold text-[#4A3525]">Pondok Pesantren Anwarul Huda Kota Malang, Jawa Timur</strong>
+      </p>
+      
+      <div class="flex justify-center items-center gap-3 text-[#8C6D53]">
+        <div class="h-px w-12 bg-gradient-to-r from-transparent to-[#8C6D53]"></div>
+        <svg class="w-6 h-6 text-[#7A5C43] fill-current" viewBox="0 0 24 24">
+          <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
+        </svg>
+        <div class="h-px w-12 bg-gradient-to-l from-transparent to-[#8C6D53]"></div>
+      </div>
+
+      <div class="p-6 sm:p-10 rounded-3xl bg-white/90 backdrop-blur-sm border border-[#E5DCC5] shadow-xl shadow-[#6E4F38]/5 space-y-6">
+        <!-- Arabic Text -->
+        <p class="text-2xl sm:text-3xl text-[#4A3525] font-serif leading-loose text-center dir-rtl font-semibold" style="font-family: 'Traditional Arabic', 'Amiri', serif;">
+          وَمِنْ آيَاتِهِ أَنْ خَلَقَ لَكُمْ مِنْ أَنْفُسِكُمْ أَزْوَاجًا لِتَسْكُنُوا إِلَيْهَا وَجَعَلَ بَيْنَكُمْ مَوَدَّةً وَرَحْمَةً ۚ إِنَّ فِي ذَٰلِك لَآيَاتٍ لِقَوْمٍ يَتَفَكَّرُونَ
+        </p>
+
+        <div class="w-24 h-px bg-[#E5DCC5] mx-auto"></div>
+
+        <!-- Indonesian Translation -->
+        <p class="text-xs sm:text-sm text-[#594433] leading-relaxed italic font-light max-w-xl mx-auto opacity-90">
+          "Dan di antara tanda-tanda (kebesaran)-Nya ialah Dia menciptakan pasangan-pasangan untukmu dari mejelismu sendiri, agar kamu cenderung dan merasa tenteram kepadanya, dan Dia menjadikan di antaramu rasa kasih dan sayang. Sungguh, pada yang demikian itu benar-benar terdapat tanda-tanda (kebesaran Allah) bagi kaum yang berpikir."
+        </p>
+        <span class="text-xs uppercase tracking-[0.3em] text-[#8C6D53] font-bold block">QS. Ar-Rum : 21</span>
+      </div>
     </div>
 
   </div>
 </section>
+

@@ -1,6 +1,6 @@
 ---
 // src/components/LocationSection.astro
-const googleMapsUrl = "https://maps.google.com/?q=-6.2088,106.8456";
+const googleMapsUrl = "https://maps.google.com/?q=Pondok+Pesantren+Anwarul+Huda+Malang";
 const qrCodeUrl = `https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=${encodeURIComponent(googleMapsUrl)}&color=4A3525&bgcolor=FAF6ED`;
 ---
 
@@ -39,11 +39,11 @@ const qrCodeUrl = `https://api.qrserver.com/v1/create-qr-code/?size=200x200&data
       <div class="space-y-5">
         <div>
           <span class="inline-block px-3 py-1 rounded-full bg-[#FAF6ED] text-[#7A5C43] text-xs font-semibold uppercase tracking-wider border border-[#E5DCC5] mb-2">
-            Lokasi Utama
+            Lokasi Utama (Akad & Resepsi)
           </span>
-          <h3 class="font-serif-wedding text-3xl text-[#4A3525] font-bold">Grand Ballroom Hotel Grand Palace</h3>
-          <p class="text-xs sm:text-sm text-[#594433] leading-relaxed mt-2 font-light">
-            Jl. Jendral Sudirman Kav. 88, Senayan, Kebayoran Baru, Jakarta Selatan, DKI Jakarta 12190
+          <h3 class="font-serif-wedding text-3xl text-[#4A3525] font-bold">Pondok Pesantren Anwarul Huda</h3>
+          <p class="text-xs sm:text-sm text-[#594433] leading-relaxed mt-2 font-medium">
+            Kota Malang, Jawa Timur
           </p>
         </div>
 
@@ -72,3 +72,4 @@ const qrCodeUrl = `https://api.qrserver.com/v1/create-qr-code/?size=200x200&data
 
   </div>
 </section>
+
