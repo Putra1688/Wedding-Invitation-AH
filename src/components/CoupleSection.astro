@@ -15,10 +15,38 @@ const {
 } = Astro.props;
 ---
 
-<section id="mempelai" class="py-16 sm:py-24 px-4 bg-gradient-to-b from-[#FAF6ED] via-white to-[#FAF6ED] relative overflow-hidden">
+<section id="mempelai" class="py-16 sm:py-24 px-4 bg-gradient-to-b from-[#FAF6ED]/75 via-white/80 to-[#FAF6ED]/75 relative overflow-hidden">
   <!-- Background Ornaments -->
   <div class="absolute -top-32 -left-32 w-96 h-96 bg-[#8C6D53]/5 rounded-full blur-3xl pointer-events-none"></div>
   <div class="absolute -bottom-32 -right-32 w-96 h-96 bg-[#8C6D53]/5 rounded-full blur-3xl pointer-events-none"></div>
+
+  <!-- Floating Corner Ornaments (Hanya untuk Section Mempelai & Surah) -->
+  <div class="absolute inset-0 pointer-events-none overflow-hidden select-none z-20">
+    <!-- Sudut Kiri Atas -->
+    <img 
+      src="/image/sudut_bunga.png" 
+      alt="Dekorasi Bunga Kiri Atas" 
+      class="absolute -top-3 -left-3 w-32 sm:w-48 md:w-60 lg:w-72 h-auto object-contain drop-shadow-md opacity-90"
+    />
+    <!-- Sudut Kanan Atas -->
+    <img 
+      src="/image/sudut_bunga.png" 
+      alt="Dekorasi Bunga Kanan Atas" 
+      class="absolute -top-3 -right-3 w-32 sm:w-48 md:w-60 lg:w-72 h-auto object-contain drop-shadow-md opacity-90 scale-x-[-1]"
+    />
+    <!-- Sudut Kiri Bawah -->
+    <img 
+      src="/image/sudut_bunga.png" 
+      alt="Dekorasi Bunga Kiri Bawah" 
+      class="absolute -bottom-3 -left-3 w-32 sm:w-48 md:w-60 lg:w-72 h-auto object-contain drop-shadow-md opacity-90 scale-y-[-1]"
+    />
+    <!-- Sudut Kanan Bawah -->
+    <img 
+      src="/image/sudut_bunga.png" 
+      alt="Dekorasi Bunga Kanan Bawah" 
+      class="absolute -bottom-3 -right-3 w-32 sm:w-48 md:w-60 lg:w-72 h-auto object-contain drop-shadow-md opacity-90 scale-x-[-1] scale-y-[-1]"
+    />
+  </div>
 
   <div class="max-w-6xl mx-auto text-center space-y-10 sm:space-y-12 relative z-10">
     

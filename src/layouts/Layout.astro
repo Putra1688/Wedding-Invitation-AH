@@ -20,8 +20,34 @@ const { title = "The Wedding of Adam & Hawa" } = Astro.props;
 		<meta name="generator" content={Astro.generator} />
 		<title>{title}</title>
 	</head>
-	<body class="lock-scroll bg-[#FDFBF7] text-[#4A3525] antialiased selection:bg-[#8C6D53]/20 selection:text-[#4A3525]">
-		<slot />
+	<body class="lock-scroll bg-[#FAF6ED] text-[#4A3525] antialiased selection:bg-[#8C6D53]/20 selection:text-[#4A3525] relative min-h-screen">
+		
+		<!-- 1. BACKGROUND LAYER (bgbunga.jpg) -->
+		<!-- Mobile: Vertikal ( rotate 0deg ), Desktop/Laptop: Horizontal ( rotate 90deg ) -->
+		<div class="fixed inset-0 z-0 pointer-events-none overflow-hidden select-none">
+			<!-- Mobile Version (Vertikal) -->
+			<img 
+				src="/image/bgbunga.jpg" 
+				alt="Background Bunga Mobile" 
+				class="block md:hidden absolute inset-0 w-full h-full object-cover opacity-30 min-h-screen"
+			/>
+			<!-- Desktop / Laptop Version (Horizontal - Rotated 90 degrees) -->
+			<div class="hidden md:flex absolute inset-0 items-center justify-center">
+				<img 
+					src="/image/bgbunga.jpg" 
+					alt="Background Bunga Desktop" 
+					class="w-[100vh] h-[100vw] max-w-none object-cover opacity-30 rotate-90 scale-125 transition-transform duration-500"
+				/>
+			</div>
+			<!-- Soft Overlay to ensure text readability -->
+			<div class="absolute inset-0 bg-[#FAF6ED]/65 backdrop-blur-[0.5px]"></div>
+		</div>
+
+		<!-- 2. MAIN CONTENT SLOT -->
+		<div class="relative z-10">
+			<slot />
+		</div>
+
 	</body>
 </html>
 
