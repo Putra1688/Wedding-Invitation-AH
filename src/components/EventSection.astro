@@ -3,8 +3,24 @@
 const googleMapsUrl = "https://maps.google.com/?q=Pondok+Pesantren+Anwarul+Huda+Malang";
 ---
 
-<section id="acara" class="py-16 sm:py-24 px-4 bg-gradient-to-b from-[#FAF6ED]/75 via-white/80 to-[#FAF6ED]/75">
-  <div class="max-w-4xl mx-auto text-center space-y-12">
+<section id="acara" class="py-16 sm:py-24 px-4 bg-gradient-to-b from-[#F2E6D4]/80 via-[#FAF4EA]/85 to-[#F5EBE0]/80 relative overflow-hidden">
+  <!-- Section Corner Ornaments (Hanya Bagian Atas) -->
+  <div class="absolute inset-0 pointer-events-none overflow-hidden select-none z-0">
+    <!-- Sudut Kiri Atas -->
+    <img 
+      src="/image/sudut_bunga.png" 
+      alt="Dekorasi Bunga Kiri Atas" 
+      class="absolute -top-3 -left-3 w-32 sm:w-48 md:w-60 lg:w-72 h-auto object-contain drop-shadow-md opacity-90"
+    />
+    <!-- Sudut Kanan Atas -->
+    <img 
+      src="/image/sudut_bunga.png" 
+      alt="Dekorasi Bunga Kanan Atas" 
+      class="absolute -top-3 -right-3 w-32 sm:w-48 md:w-60 lg:w-72 h-auto object-contain drop-shadow-md opacity-90 scale-x-[-1]"
+    />
+  </div>
+
+  <div class="max-w-4xl mx-auto text-center space-y-12 relative z-10">
     
     <!-- Section Header -->
     <div class="space-y-2">
@@ -17,8 +33,12 @@ const googleMapsUrl = "https://maps.google.com/?q=Pondok+Pesantren+Anwarul+Huda+
     <div class="grid md:grid-cols-2 gap-8 pt-4">
       
       <!-- Akad Nikah Card -->
-      <div class="p-8 rounded-3xl bg-white border border-[#E5DCC5] shadow-lg shadow-[#6E4F38]/5 space-y-5 text-center flex flex-col justify-between hover:border-[#8C6D53]/40 transition-colors">
-        <div class="space-y-4">
+      <div class="p-8 rounded-3xl bg-white/95 border border-[#E5DCC5] shadow-lg shadow-[#6E4F38]/10 space-y-5 text-center flex flex-col justify-between hover:border-[#8C6D53]/40 transition-colors relative overflow-hidden">
+        <!-- Card Corner Ornaments -->
+        <img src="/image/sudut_bunga.png" alt="Ornamen Bunga" class="absolute -top-4 -left-4 w-24 sm:w-32 md:w-36 h-auto opacity-85 pointer-events-none select-none" />
+        <img src="/image/sudut_bunga.png" alt="Ornamen Bunga" class="absolute -bottom-4 -right-4 w-24 sm:w-32 md:w-36 h-auto opacity-85 pointer-events-none select-none scale-x-[-1] scale-y-[-1]" />
+
+        <div class="space-y-4 relative z-10">
           <div class="w-14 h-14 rounded-2xl bg-[#FAF6ED] border border-[#E5DCC5] mx-auto flex items-center justify-center text-[#7A5C43]">
             <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/>
@@ -38,8 +58,12 @@ const googleMapsUrl = "https://maps.google.com/?q=Pondok+Pesantren+Anwarul+Huda+
       </div>
 
       <!-- Resepsi Pernikahan Card -->
-      <div class="p-8 rounded-3xl bg-white border border-[#E5DCC5] shadow-lg shadow-[#6E4F38]/5 space-y-5 text-center flex flex-col justify-between hover:border-[#8C6D53]/40 transition-colors">
-        <div class="space-y-4">
+      <div class="p-8 rounded-3xl bg-white/95 border border-[#E5DCC5] shadow-lg shadow-[#6E4F38]/10 space-y-5 text-center flex flex-col justify-between hover:border-[#8C6D53]/40 transition-colors relative overflow-hidden">
+        <!-- Card Corner Ornaments -->
+        <img src="/image/sudut_bunga.png" alt="Ornamen Bunga" class="absolute -top-4 -left-4 w-24 sm:w-32 md:w-36 h-auto opacity-85 pointer-events-none select-none" />
+        <img src="/image/sudut_bunga.png" alt="Ornamen Bunga" class="absolute -bottom-4 -right-4 w-24 sm:w-32 md:w-36 h-auto opacity-85 pointer-events-none select-none scale-x-[-1] scale-y-[-1]" />
+
+        <div class="space-y-4 relative z-10">
           <div class="w-14 h-14 rounded-2xl bg-[#FAF6ED] border border-[#E5DCC5] mx-auto flex items-center justify-center text-[#7A5C43]">
             <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5m0 0h4m-4 0v-4a1 1 0 011-1h2a1 1 0 011 1v4"/>

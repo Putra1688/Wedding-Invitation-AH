@@ -4,8 +4,24 @@ const googleMapsUrl = "https://maps.google.com/?q=Pondok+Pesantren+Anwarul+Huda+
 const qrCodeUrl = `https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=${encodeURIComponent(googleMapsUrl)}&color=4A3525&bgcolor=FAF6ED`;
 ---
 
-<section id="lokasi" class="py-16 sm:py-24 px-4 bg-[#FAF6ED]/75">
-  <div class="max-w-4xl mx-auto text-center space-y-10">
+<section id="lokasi" class="py-16 sm:py-24 px-4 bg-gradient-to-b from-[#F5EBE0]/80 via-[#FAF4EA]/85 to-[#EFE2CC]/80 relative overflow-hidden">
+  <!-- Section Corner Ornaments (Hanya Bagian Bawah) -->
+  <div class="absolute inset-0 pointer-events-none overflow-hidden select-none z-0">
+    <!-- Sudut Kiri Bawah -->
+    <img 
+      src="/image/sudut_bunga.png" 
+      alt="Dekorasi Bunga Kiri Bawah" 
+      class="absolute -bottom-3 -left-3 w-32 sm:w-48 md:w-60 lg:w-72 h-auto object-contain drop-shadow-md opacity-90 scale-y-[-1]"
+    />
+    <!-- Sudut Kanan Bawah -->
+    <img 
+      src="/image/sudut_bunga.png" 
+      alt="Dekorasi Bunga Kanan Bawah" 
+      class="absolute -bottom-3 -right-3 w-32 sm:w-48 md:w-60 lg:w-72 h-auto object-contain drop-shadow-md opacity-90 scale-x-[-1] scale-y-[-1]"
+    />
+  </div>
+
+  <div class="max-w-4xl mx-auto text-center space-y-10 relative z-10">
     
     <!-- Section Header -->
     <div class="space-y-2">
@@ -15,7 +31,10 @@ const qrCodeUrl = `https://api.qrserver.com/v1/create-qr-code/?size=200x200&data
     </div>
 
     <!-- Location Card with QR Code / Barcode -->
-    <div class="p-8 sm:p-10 rounded-3xl bg-white border border-[#E5DCC5] shadow-xl shadow-[#6E4F38]/5 grid md:grid-cols-2 gap-8 items-center text-center md:text-left">
+    <div class="p-8 sm:p-10 rounded-3xl bg-white/95 border border-[#E5DCC5] shadow-xl shadow-[#6E4F38]/10 grid md:grid-cols-2 gap-8 items-center text-center md:text-left relative overflow-hidden">
+      <!-- Card Corner Ornaments -->
+      <img src="/image/sudut_bunga.png" alt="Ornamen Bunga" class="absolute -top-5 -left-5 w-32 sm:w-40 md:w-48 h-auto opacity-85 pointer-events-none select-none z-10" />
+      <img src="/image/sudut_bunga.png" alt="Ornamen Bunga" class="absolute -bottom-5 -right-5 w-32 sm:w-40 md:w-48 h-auto opacity-85 pointer-events-none select-none scale-x-[-1] scale-y-[-1] z-10" />
       
       <!-- QR Code / Barcode View -->
       <div class="flex flex-col items-center justify-center p-6 rounded-2xl bg-[#FAF6ED] border border-[#E5DCC5] space-y-3">

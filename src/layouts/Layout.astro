@@ -20,7 +20,7 @@ const { title = "The Wedding of Adam & Hawa" } = Astro.props;
 		<meta name="generator" content={Astro.generator} />
 		<title>{title}</title>
 	</head>
-	<body class="lock-scroll bg-[#FAF6ED] text-[#4A3525] antialiased selection:bg-[#8C6D53]/20 selection:text-[#4A3525] relative min-h-screen">
+	<body class="lock-scroll bg-gradient-to-b from-[#F5EBE0] via-[#FAF6ED] to-[#EFE3D3] text-[#4A3525] antialiased selection:bg-[#8C6D53]/20 selection:text-[#4A3525] relative min-h-screen">
 		
 		<!-- 1. BACKGROUND LAYER (bgbunga.jpg) -->
 		<!-- Mobile: Vertikal ( rotate 0deg ), Desktop/Laptop: Horizontal ( rotate 90deg ) -->
@@ -29,18 +29,20 @@ const { title = "The Wedding of Adam & Hawa" } = Astro.props;
 			<img 
 				src="/image/bgbunga.jpg" 
 				alt="Background Bunga Mobile" 
-				class="block md:hidden absolute inset-0 w-full h-full object-cover opacity-30 min-h-screen"
+				class="block md:hidden absolute inset-0 w-full h-full object-cover opacity-40 min-h-screen"
 			/>
 			<!-- Desktop / Laptop Version (Horizontal - Rotated 90 degrees) -->
 			<div class="hidden md:flex absolute inset-0 items-center justify-center">
 				<img 
 					src="/image/bgbunga.jpg" 
 					alt="Background Bunga Desktop" 
-					class="w-[100vh] h-[100vw] max-w-none object-cover opacity-30 rotate-90 scale-125 transition-transform duration-500"
+					class="w-[100vh] h-[100vw] max-w-none object-cover opacity-50 rotate-90 scale-125 transition-transform duration-500"
 				/>
 			</div>
-			<!-- Soft Overlay to ensure text readability -->
-			<div class="absolute inset-0 bg-[#FAF6ED]/65 backdrop-blur-[0.5px]"></div>
+			<!-- Rich Warm Cream Overlay Gradient for optimal contrast & warm luxury tone -->
+			<div class="absolute inset-0 bg-gradient-to-b from-[#FAF4EA]/45 via-[#F3E7D3]/40 to-[#EADBC4]/50 backdrop-blur-[0.3px]"></div>
+			<!-- Desktop Radial Vignette for rich depth -->
+			<div class="hidden md:block absolute inset-0 bg-[radial-gradient(ellipse_at_center,_transparent_35%,_rgba(218,198,171,0.3)_100%)] pointer-events-none"></div>
 		</div>
 
 		<!-- 2. MAIN CONTENT SLOT -->
