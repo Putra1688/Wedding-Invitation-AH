@@ -23,29 +23,25 @@ const {
   <!-- Floating Corner Ornaments (Hanya untuk Section Mempelai & Surah) -->
   <div class="absolute inset-0 pointer-events-none overflow-hidden select-none z-20">
     <!-- Sudut Kiri Atas -->
-    <img 
-      src="/image/sudut_bunga.png" 
-      alt="Dekorasi Bunga Kiri Atas" 
-      class="absolute -top-3 -left-3 w-32 sm:w-48 md:w-60 lg:w-72 h-auto object-contain drop-shadow-md opacity-90"
-    />
+    <span class="absolute -top-3 -left-3" data-aos="zoom-in" data-aos-delay="0">
+      <img src="/image/sudut_bunga.png" alt="Dekorasi Bunga Kiri Atas"
+        class="w-32 sm:w-48 md:w-60 lg:w-72 h-auto object-contain drop-shadow-md opacity-90 pointer-events-none select-none" />
+    </span>
     <!-- Sudut Kanan Atas -->
-    <img 
-      src="/image/sudut_bunga.png" 
-      alt="Dekorasi Bunga Kanan Atas" 
-      class="absolute -top-3 -right-3 w-32 sm:w-48 md:w-60 lg:w-72 h-auto object-contain drop-shadow-md opacity-90 scale-x-[-1]"
-    />
+    <span class="absolute -top-3 -right-3" data-aos="zoom-in" data-aos-delay="100">
+      <img src="/image/sudut_bunga.png" alt="Dekorasi Bunga Kanan Atas"
+        class="w-32 sm:w-48 md:w-60 lg:w-72 h-auto object-contain drop-shadow-md opacity-90 scale-x-[-1] pointer-events-none select-none" />
+    </span>
     <!-- Sudut Kiri Bawah -->
-    <img 
-      src="/image/sudut_bunga.png" 
-      alt="Dekorasi Bunga Kiri Bawah" 
-      class="absolute -bottom-3 -left-3 w-32 sm:w-48 md:w-60 lg:w-72 h-auto object-contain drop-shadow-md opacity-90 scale-y-[-1]"
-    />
+    <span class="absolute -bottom-3 -left-3" data-aos="zoom-in" data-aos-delay="200">
+      <img src="/image/sudut_bunga.png" alt="Dekorasi Bunga Kiri Bawah"
+        class="w-32 sm:w-48 md:w-60 lg:w-72 h-auto object-contain drop-shadow-md opacity-90 scale-y-[-1] pointer-events-none select-none" />
+    </span>
     <!-- Sudut Kanan Bawah -->
-    <img 
-      src="/image/sudut_bunga.png" 
-      alt="Dekorasi Bunga Kanan Bawah" 
-      class="absolute -bottom-3 -right-3 w-32 sm:w-48 md:w-60 lg:w-72 h-auto object-contain drop-shadow-md opacity-90 scale-x-[-1] scale-y-[-1]"
-    />
+    <span class="absolute -bottom-3 -right-3" data-aos="zoom-in" data-aos-delay="300">
+      <img src="/image/sudut_bunga.png" alt="Dekorasi Bunga Kanan Bawah"
+        class="w-32 sm:w-48 md:w-60 lg:w-72 h-auto object-contain drop-shadow-md opacity-90 scale-x-[-1] scale-y-[-1] pointer-events-none select-none" />
+    </span>
   </div>
 
   <div class="max-w-6xl mx-auto text-center space-y-10 sm:space-y-12 relative z-10">
@@ -143,8 +139,12 @@ const {
 
       <div class="p-6 sm:p-10 rounded-3xl bg-white/95 backdrop-blur-sm border border-[#E5DCC5] shadow-xl shadow-[#6E4F38]/10 space-y-6 relative overflow-hidden">
         <!-- Card Corner Ornaments -->
-        <img src="/image/sudut_bunga.png" alt="Ornamen Bunga" class="absolute -top-4 -left-4 w-28 sm:w-36 md:w-44 h-auto opacity-85 pointer-events-none select-none" />
-        <img src="/image/sudut_bunga.png" alt="Ornamen Bunga" class="absolute -bottom-4 -right-4 w-28 sm:w-36 md:w-44 h-auto opacity-85 pointer-events-none select-none scale-x-[-1] scale-y-[-1]" />
+        <span class="absolute -top-4 -left-4" data-aos="zoom-in">
+          <img src="/image/sudut_bunga.png" alt="Ornamen Bunga" class="w-28 sm:w-36 md:w-44 h-auto opacity-85 pointer-events-none select-none" />
+        </span>
+        <span class="absolute -bottom-4 -right-4" data-aos="zoom-in" data-aos-delay="150">
+          <img src="/image/sudut_bunga.png" alt="Ornamen Bunga" class="w-28 sm:w-36 md:w-44 h-auto opacity-85 pointer-events-none select-none scale-x-[-1] scale-y-[-1]" />
+        </span>
 
         <!-- Arabic Text -->
         <p class="text-2xl sm:text-3xl text-[#4A3525] font-serif leading-loose text-center dir-rtl font-semibold" style="font-family: 'Traditional Arabic', 'Amiri', serif;">

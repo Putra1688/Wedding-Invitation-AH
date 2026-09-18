@@ -19,6 +19,8 @@ const { title = "The Wedding of Adam & Hawa" } = Astro.props;
 		<link href="https://fonts.googleapis.com/css2?family=Alex+Brush&family=Cinzel:wght@400;500;600;700&family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 		<meta name="generator" content={Astro.generator} />
 		<title>{title}</title>
+		<!-- AOS (Animate On Scroll) -->
+		<link rel="stylesheet" href="https://unpkg.com/aos@2.3.4/dist/aos.css" />
 	</head>
 	<body class="lock-scroll bg-gradient-to-b from-[#F5EBE0] via-[#FAF6ED] to-[#EFE3D3] text-[#4A3525] antialiased selection:bg-[#8C6D53]/20 selection:text-[#4A3525] relative min-h-screen">
 		
@@ -51,5 +53,19 @@ const { title = "The Wedding of Adam & Hawa" } = Astro.props;
 		</div>
 
 	</body>
+	<!-- AOS Init -->
+	<script src="https://unpkg.com/aos@2.3.4/dist/aos.js" is:inline></script>
+	<script is:inline>
+		document.addEventListener('DOMContentLoaded', () => {
+			if (typeof AOS !== 'undefined') {
+				AOS.init({
+					duration: 1800,
+					easing: 'ease-out-cubic',
+					once: true,
+					offset: 60,
+				});
+			}
+		});
+	</script>
 </html>
 
