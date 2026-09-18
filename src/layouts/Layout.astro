@@ -56,16 +56,9 @@ const { title = "The Wedding of Adam & Hawa" } = Astro.props;
 	<!-- AOS Init -->
 	<script src="https://unpkg.com/aos@2.3.4/dist/aos.js" is:inline></script>
 	<script is:inline>
-		document.addEventListener('DOMContentLoaded', () => {
-			if (typeof AOS !== 'undefined') {
-				AOS.init({
-					duration: 1800,
-					easing: 'ease-out-cubic',
-					once: true,
-					offset: 60,
-				});
-			}
-		});
+		// AOS tidak di-init di sini. Init dikendalikan dari index.astro
+		// setelah tombol buka undangan ditekan agar animasi masuk terlihat.
+		// Lihat: index.astro -> btn-open-invitation click handler
 	</script>
 </html>
 

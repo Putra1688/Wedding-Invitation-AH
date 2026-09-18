@@ -1,28 +1,75 @@
 ---
-// src/components/LocationSection.astro
+// src/components/taationSection.astro
 const googleMapsUrl = "https://maps.google.com/?q=Pondok+Pesantren+Anwarul+Huda+Malang";
 const qrCodeUrl = `https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=${encodeURIComponent(googleMapsUrl)}&color=4A3525&bgcolor=FAF6ED`;
 ---
 
 <section id="lokasi" class="py-16 sm:py-24 px-4 bg-gradient-to-b from-[#F5EBE0]/80 via-[#FAF4EA]/85 to-[#EFE2CC]/80 relative overflow-hidden">
-  <!-- Section Corner Ornaments (Hanya Bagian Bawah) -->
+  <!-- Section Corner Ornaments (Pojok Layar / Screen Corners) -->
   <div class="absolute inset-0 pointer-events-none overflow-hidden select-none z-0">
-    <!-- Sudut Kiri Bawah -->
-    <span class="absolute -bottom-3 -left-3" data-aos="zoom-in" data-aos-delay="0">
-      <img 
-        src="/image/sudut_bunga.png" 
-        alt="Dekorasi Bunga Kiri Bawah" 
-        class="w-32 sm:w-48 md:w-60 lg:w-72 h-auto object-contain drop-shadow-md opacity-90 scale-y-[-1]"
-      />
-    </span>
-    <!-- Sudut Kanan Bawah -->
-    <span class="absolute -bottom-3 -right-3" data-aos="zoom-in" data-aos-delay="100">
-      <img 
-        src="/image/sudut_bunga.png" 
-        alt="Dekorasi Bunga Kanan Bawah" 
-        class="w-32 sm:w-48 md:w-60 lg:w-72 h-auto object-contain drop-shadow-md opacity-90 scale-x-[-1] scale-y-[-1]"
-      />
-    </span>
+    <!-- Sudut Kiri Bawah Layar -->
+    <div class="absolute -bottom-3 -left-3 pointer-events-none select-none z-0">
+      <!-- 1. Paling Pojok (Outer Corner): tangkai_bunga_2.png (BEHIND sudut_bunga) -->
+      <span class="absolute bottom-0 left-0 z-0" data-aos="zoom-in" data-aos-duration="2000" data-aos-delay="0">
+        <img src="/image/tangkai_bunga_2.png" alt="Tangkai Bunga 2" class="w-32 sm:w-44 md:w-56 h-auto object-contain animate-sway drop-shadow-sm" />
+      </span>
+
+      <!-- 2. Bergeser ke Tengah: tangkai_bunga_3.png (BEHIND sudut_bunga) -->
+      <span class="absolute bottom-2 left-16 sm:left-24 md:left-32 z-1" data-aos="zoom-in" data-aos-duration="2000" data-aos-delay="100">
+        <img src="/image/tangkai_bunga_3.png" alt="Tangkai Bunga 3" class="w-28 sm:w-40 md:w-52 h-auto object-contain animate-sway drop-shadow-sm" />
+      </span>
+
+      <!-- 3. Lebih ke Tengah: satu_bunga_2.png (BEHIND sudut_bunga) -->
+      <span class="absolute bottom-6 left-36 sm:left-52 md:left-64 z-2" data-aos="zoom-in" data-aos-duration="2000" data-aos-delay="200">
+        <img src="/image/satu_bunga_2.png" alt="Satu Bunga 2" class="w-16 sm:w-22 md:w-28 h-auto object-contain animate-sway drop-shadow-md" />
+      </span>
+
+      <!-- 4. Paling Tengah: satu_bunga.png (BEHIND sudut_bunga) -->
+      <span class="absolute bottom-10 left-52 sm:left-72 md:left-88 z-3" data-aos="zoom-in" data-aos-duration="2000" data-aos-delay="300">
+        <img src="/image/satu_bunga.png" alt="Satu Bunga" class="w-18 sm:w-24 md:w-30 h-auto object-contain animate-sway drop-shadow-md" />
+      </span>
+
+      <!-- FRONT LAYER: sudut_bunga.png (Di Depan Semua Tangkai & Bunga) -->
+      <span class="relative block z-10" data-aos="zoom-in" data-aos-duration="2000" data-aos-delay="0">
+        <img 
+          src="/image/sudut_bunga.png" 
+          alt="Dekorasi Bunga Kiri Bawah" 
+          class="w-36 sm:w-52 md:w-64 lg:w-80 h-auto object-contain drop-shadow-md opacity-95 scale-y-[-1]"
+        />
+      </span>
+    </div>
+
+    <!-- Sudut Kanan Bawah Layar -->
+    <div class="absolute -bottom-3 -right-3 pointer-events-none select-none z-0">
+      <!-- 1. Paling Pojok (Outer Corner): tangkai_bunga_2.png (BEHIND sudut_bunga) -->
+      <span class="absolute bottom-0 right-0 z-0" data-aos="zoom-in" data-aos-duration="2000" data-aos-delay="0">
+        <img src="/image/tangkai_bunga_2.png" alt="Tangkai Bunga 2" class="w-32 sm:w-44 md:w-56 h-auto object-contain animate-sway drop-shadow-sm scale-x-[-1]" />
+      </span>
+
+      <!-- 2. Bergeser ke Tengah: tangkai_bunga_3.png (BEHIND sudut_bunga) -->
+      <span class="absolute bottom-2 right-16 sm:right-24 md:right-32 z-1" data-aos="zoom-in" data-aos-duration="2000" data-aos-delay="100">
+        <img src="/image/tangkai_bunga_3.png" alt="Tangkai Bunga 3" class="w-28 sm:w-40 md:w-52 h-auto object-contain animate-sway drop-shadow-sm scale-x-[-1]" />
+      </span>
+
+      <!-- 3. Lebih ke Tengah: satu_bunga_2.png (BEHIND sudut_bunga) -->
+      <span class="absolute bottom-6 right-36 sm:right-52 md:right-64 z-2" data-aos="zoom-in" data-aos-duration="2000" data-aos-delay="200">
+        <img src="/image/satu_bunga_2.png" alt="Satu Bunga 2" class="w-16 sm:w-22 md:w-28 h-auto object-contain animate-sway drop-shadow-md scale-x-[-1]" />
+      </span>
+
+      <!-- 4. Paling Tengah: satu_bunga.png (BEHIND sudut_bunga) -->
+      <span class="absolute bottom-10 right-52 sm:right-72 md:right-88 z-3" data-aos="zoom-in" data-aos-duration="2000" data-aos-delay="300">
+        <img src="/image/satu_bunga.png" alt="Satu Bunga" class="w-18 sm:w-24 md:w-30 h-auto object-contain animate-sway drop-shadow-md scale-x-[-1]" />
+      </span>
+
+      <!-- FRONT LAYER: sudut_bunga.png (Di Depan Semua Tangkai & Bunga) -->
+      <span class="relative block z-10" data-aos="zoom-in" data-aos-duration="2000" data-aos-delay="0">
+        <img 
+          src="/image/sudut_bunga.png" 
+          alt="Dekorasi Bunga Kanan Bawah" 
+          class="w-36 sm:w-52 md:w-64 lg:w-80 h-auto object-contain drop-shadow-md opacity-95 scale-x-[-1] scale-y-[-1]"
+        />
+      </span>
+    </div>
   </div>
 
   <div class="max-w-4xl mx-auto text-center space-y-10 relative z-10">
@@ -36,12 +83,12 @@ const qrCodeUrl = `https://api.qrserver.com/v1/create-qr-code/?size=200x200&data
 
     <!-- Location Card with QR Code / Barcode -->
     <div class="p-8 sm:p-10 rounded-3xl bg-white/95 border border-[#E5DCC5] shadow-xl shadow-[#6E4F38]/10 grid md:grid-cols-2 gap-8 items-center text-center md:text-left relative overflow-hidden">
-      <!-- Card Corner Ornaments -->
+      <!-- Card Corner Ornaments (Bersih & Tidak Menutupi Teks/Barcode) -->
       <span class="absolute -top-5 -left-5 z-10" data-aos="zoom-in">
-        <img src="/image/sudut_bunga.png" alt="Ornamen Bunga" class="w-32 sm:w-40 md:w-48 h-auto opacity-85 pointer-events-none select-none" />
+        <img src="/image/sudut_bunga.png" alt="Ornamen Bunga" class="w-24 sm:w-32 h-auto opacity-70 pointer-events-none select-none" />
       </span>
       <span class="absolute -bottom-5 -right-5 z-10" data-aos="zoom-in" data-aos-delay="150">
-        <img src="/image/sudut_bunga.png" alt="Ornamen Bunga" class="w-32 sm:w-40 md:w-48 h-auto opacity-85 pointer-events-none select-none scale-x-[-1] scale-y-[-1]" />
+        <img src="/image/sudut_bunga.png" alt="Ornamen Bunga" class="w-24 sm:w-32 h-auto opacity-70 pointer-events-none select-none scale-x-[-1] scale-y-[-1]" />
       </span>
       
       <!-- QR Code / Barcode View -->

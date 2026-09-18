@@ -20,8 +20,8 @@ const {
   <div class="absolute -top-32 -left-32 w-96 h-96 bg-[#8C6D53]/5 rounded-full blur-3xl pointer-events-none"></div>
   <div class="absolute -bottom-32 -right-32 w-96 h-96 bg-[#8C6D53]/5 rounded-full blur-3xl pointer-events-none"></div>
 
-  <!-- Floating Corner Ornaments (Hanya untuk Section Mempelai & Surah) -->
-  <div class="absolute inset-0 pointer-events-none overflow-hidden select-none z-20">
+  <!-- Floating Corner Ornaments (Pojok Layar / Screen Corners) -->
+  <div class="absolute inset-0 pointer-events-none overflow-hidden select-none z-0">
     <!-- Sudut Kiri Atas -->
     <span class="absolute -top-3 -left-3" data-aos="zoom-in" data-aos-delay="0">
       <img src="/image/sudut_bunga.png" alt="Dekorasi Bunga Kiri Atas"
@@ -32,16 +32,70 @@ const {
       <img src="/image/sudut_bunga.png" alt="Dekorasi Bunga Kanan Atas"
         class="w-32 sm:w-48 md:w-60 lg:w-72 h-auto object-contain drop-shadow-md opacity-90 scale-x-[-1] pointer-events-none select-none" />
     </span>
-    <!-- Sudut Kiri Bawah -->
-    <span class="absolute -bottom-3 -left-3" data-aos="zoom-in" data-aos-delay="200">
-      <img src="/image/sudut_bunga.png" alt="Dekorasi Bunga Kiri Bawah"
-        class="w-32 sm:w-48 md:w-60 lg:w-72 h-auto object-contain drop-shadow-md opacity-90 scale-y-[-1] pointer-events-none select-none" />
-    </span>
-    <!-- Sudut Kanan Bawah -->
-    <span class="absolute -bottom-3 -right-3" data-aos="zoom-in" data-aos-delay="300">
-      <img src="/image/sudut_bunga.png" alt="Dekorasi Bunga Kanan Bawah"
-        class="w-32 sm:w-48 md:w-60 lg:w-72 h-auto object-contain drop-shadow-md opacity-90 scale-x-[-1] scale-y-[-1] pointer-events-none select-none" />
-    </span>
+
+    <!-- Sudut Kiri Bawah Layar (Layered Bouquet) -->
+    <div class="absolute -bottom-3 -left-3 pointer-events-none select-none z-0">
+      <!-- 1. Paling Pojok (Outer Corner): tangkai_bunga_2.png (BEHIND sudut_bunga) -->
+      <span class="absolute bottom-0 left-0 z-0" data-aos="zoom-in" data-aos-duration="2000" data-aos-delay="0">
+        <img src="/image/tangkai_bunga_2.png" alt="Tangkai Bunga 2" class="w-32 sm:w-44 md:w-56 h-auto object-contain animate-sway drop-shadow-sm" />
+      </span>
+
+      <!-- 2. Bergeser ke Tengah: tangkai_bunga_3.png (BEHIND sudut_bunga) -->
+      <span class="absolute bottom-2 left-16 sm:left-24 md:left-32 z-1" data-aos="zoom-in" data-aos-duration="2000" data-aos-delay="100">
+        <img src="/image/tangkai_bunga_3.png" alt="Tangkai Bunga 3" class="w-28 sm:w-40 md:w-52 h-auto object-contain animate-sway drop-shadow-sm" />
+      </span>
+
+      <!-- 3. Lebih ke Tengah: satu_bunga_2.png (BEHIND sudut_bunga) -->
+      <span class="absolute bottom-6 left-36 sm:left-52 md:left-64 z-2" data-aos="zoom-in" data-aos-duration="2000" data-aos-delay="200">
+        <img src="/image/satu_bunga_2.png" alt="Satu Bunga 2" class="w-16 sm:w-22 md:w-28 h-auto object-contain animate-sway drop-shadow-md" />
+      </span>
+
+      <!-- 4. Paling Tengah: satu_bunga.png (BEHIND sudut_bunga) -->
+      <span class="absolute bottom-10 left-52 sm:left-72 md:left-88 z-3" data-aos="zoom-in" data-aos-duration="2000" data-aos-delay="300">
+        <img src="/image/satu_bunga.png" alt="Satu Bunga" class="w-18 sm:w-24 md:w-30 h-auto object-contain animate-sway drop-shadow-md" />
+      </span>
+
+      <!-- FRONT LAYER: sudut_bunga.png (Di Depan Semua Tangkai & Bunga) -->
+      <span class="relative block z-10" data-aos="zoom-in" data-aos-duration="2000" data-aos-delay="0">
+        <img 
+          src="/image/sudut_bunga.png" 
+          alt="Dekorasi Bunga Kiri Bawah" 
+          class="w-36 sm:w-52 md:w-64 lg:w-80 h-auto object-contain drop-shadow-md opacity-95 scale-y-[-1]"
+        />
+      </span>
+    </div>
+
+    <!-- Sudut Kanan Bawah Layar (Layered Bouquet) -->
+    <div class="absolute -bottom-3 -right-3 pointer-events-none select-none z-0">
+      <!-- 1. Paling Pojok (Outer Corner): tangkai_bunga_2.png (BEHIND sudut_bunga) -->
+      <span class="absolute bottom-0 right-0 z-0" data-aos="zoom-in" data-aos-duration="2000" data-aos-delay="0">
+        <img src="/image/tangkai_bunga_2.png" alt="Tangkai Bunga 2" class="w-32 sm:w-44 md:w-56 h-auto object-contain animate-sway drop-shadow-sm scale-x-[-1]" />
+      </span>
+
+      <!-- 2. Bergeser ke Tengah: tangkai_bunga_3.png (BEHIND sudut_bunga) -->
+      <span class="absolute bottom-2 right-16 sm:right-24 md:right-32 z-1" data-aos="zoom-in" data-aos-duration="2000" data-aos-delay="100">
+        <img src="/image/tangkai_bunga_3.png" alt="Tangkai Bunga 3" class="w-28 sm:w-40 md:w-52 h-auto object-contain animate-sway drop-shadow-sm scale-x-[-1]" />
+      </span>
+
+      <!-- 3. Lebih ke Tengah: satu_bunga_2.png (BEHIND sudut_bunga) -->
+      <span class="absolute bottom-6 right-36 sm:right-52 md:right-64 z-2" data-aos="zoom-in" data-aos-duration="2000" data-aos-delay="200">
+        <img src="/image/satu_bunga_2.png" alt="Satu Bunga 2" class="w-16 sm:w-22 md:w-28 h-auto object-contain animate-sway drop-shadow-md scale-x-[-1]" />
+      </span>
+
+      <!-- 4. Paling Tengah: satu_bunga.png (BEHIND sudut_bunga) -->
+      <span class="absolute bottom-10 right-52 sm:right-72 md:right-88 z-3" data-aos="zoom-in" data-aos-duration="2000" data-aos-delay="300">
+        <img src="/image/satu_bunga.png" alt="Satu Bunga" class="w-18 sm:w-24 md:w-30 h-auto object-contain animate-sway drop-shadow-md scale-x-[-1]" />
+      </span>
+
+      <!-- FRONT LAYER: sudut_bunga.png (Di Depan Semua Tangkai & Bunga) -->
+      <span class="relative block z-10" data-aos="zoom-in" data-aos-duration="2000" data-aos-delay="0">
+        <img 
+          src="/image/sudut_bunga.png" 
+          alt="Dekorasi Bunga Kanan Bawah" 
+          class="w-36 sm:w-52 md:w-64 lg:w-80 h-auto object-contain drop-shadow-md opacity-95 scale-x-[-1] scale-y-[-1]"
+        />
+      </span>
+    </div>
   </div>
 
   <div class="max-w-6xl mx-auto text-center space-y-10 sm:space-y-12 relative z-10">
@@ -67,9 +121,9 @@ const {
     <div class="flex flex-col md:flex-row items-center justify-center gap-6 md:gap-4 lg:gap-8 max-w-5xl mx-auto py-4">
       
       <!-- Groom Section (Text di Kiri, Avatar di Kanan) -->
-      <div class="flex items-center justify-end gap-3 sm:gap-4 w-full md:w-auto text-right min-w-0">
+      <div class="flex items-center justify-end gap-5 sm:gap-8 lg:gap-10 w-full md:w-auto text-right min-w-0">
         <!-- Groom Text -->
-        <div class="flex-1 md:flex-initial space-y-1 min-w-0">
+        <div class="flex-1 md:flex-initial space-y-1 min-w-0 pr-2 sm:pr-4 lg:pr-6">
           <h3 class="font-script text-xl sm:text-2xl md:text-3xl lg:text-4xl text-[#7A5C43] font-normal leading-snug whitespace-nowrap">
             {groomName} Wahyu Pratama
           </h3>
@@ -78,15 +132,36 @@ const {
           </p>
         </div>
 
-        <!-- Groom Avatar / Photo Frame -->
-        <div class="w-20 h-20 sm:w-24 sm:h-24 lg:w-32 lg:h-32 rounded-full bg-gradient-to-b from-[#FAF6ED] to-[#F5EBD9] border-4 border-white shadow-md flex items-center justify-center text-[#7A5C43] font-serif-wedding text-2xl sm:text-3xl lg:text-4xl font-bold overflow-hidden shrink-0 relative">
-          <img 
-            src={groomPhoto} 
-            alt={`Foto ${groomName}`} 
-            class="w-full h-full object-cover"
-            onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
-          />
-          <span class="hidden w-full h-full items-center justify-center">{groomName ? groomName.charAt(0) : "A"}</span>
+        <!-- Groom Avatar / Photo Frame Container -->
+        <div class="relative shrink-0 flex items-center justify-center my-2">
+          <!-- Background Flower Frame (bunga_bingkai.png) - BEHIND photo frame (z-0) -->
+          <span class="absolute inset-0 -m-5 sm:-m-7 lg:-m-9 pointer-events-none z-0 flex items-center justify-center" data-aos="zoom-in" data-aos-duration="1800">
+            <img 
+              src="/image/bunga_bingkai.png" 
+              alt="Bingkai Bunga" 
+              class="w-[155%] h-[155%] max-w-none object-contain animate-sway pointer-events-none select-none drop-shadow-sm" 
+            />
+          </span>
+
+          <!-- Main Photo Frame (z-10) -->
+          <div class="w-20 h-20 sm:w-24 sm:h-24 lg:w-32 lg:h-32 rounded-full bg-gradient-to-b from-[#FAF6ED] to-[#F5EBD9] border-4 border-white shadow-md flex items-center justify-center text-[#7A5C43] font-serif-wedding text-2xl sm:text-3xl lg:text-4xl font-bold overflow-hidden relative z-10">
+            <img 
+              src={groomPhoto} 
+              alt={`Foto ${groomName}`} 
+              class="w-full h-full object-cover"
+              onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
+            />
+            <span class="hidden w-full h-full items-center justify-center">{groomName ? groomName.charAt(0) : "A"}</span>
+          </div>
+
+          <!-- Foreground Flower (bunga_depan.png) - IN FRONT of photo frame (z-20) at bottom tip of frame -->
+          <span class="absolute -bottom-6 sm:-bottom-8 lg:-bottom-10 left-1/2 -translate-x-1/2 pointer-events-none z-20 w-16 sm:w-20 lg:w-26 flex justify-center" data-aos="zoom-in" data-aos-duration="2000">
+            <img 
+              src="/image/bunga_depan.png" 
+              alt="Bunga Depan Frame" 
+              class="w-full h-auto object-contain drop-shadow-md pointer-events-none select-none" 
+            />
+          </span>
         </div>
       </div>
 
@@ -98,20 +173,41 @@ const {
       </div>
 
       <!-- Bride Section (Avatar di Kiri, Text di Kanan) -->
-      <div class="flex items-center justify-start gap-3 sm:gap-4 w-full md:w-auto text-left min-w-0">
-        <!-- Bride Avatar / Photo Frame -->
-        <div class="w-20 h-20 sm:w-24 sm:h-24 lg:w-32 lg:h-32 rounded-full bg-gradient-to-b from-[#FAF6ED] to-[#F5EBD9] border-4 border-white shadow-md flex items-center justify-center text-[#7A5C43] font-serif-wedding text-2xl sm:text-3xl lg:text-4xl font-bold overflow-hidden shrink-0 relative">
-          <img 
-            src={bridePhoto} 
-            alt={`Foto ${brideName}`} 
-            class="w-full h-full object-cover"
-            onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
-          />
-          <span class="hidden w-full h-full items-center justify-center">{brideName ? brideName.charAt(0) : "M"}</span>
+      <div class="flex items-center justify-start gap-5 sm:gap-8 lg:gap-10 w-full md:w-auto text-left min-w-0">
+        <!-- Bride Avatar / Photo Frame Container -->
+        <div class="relative shrink-0 flex items-center justify-center my-2">
+          <!-- Background Flower Frame (bunga_bingkai.png) - BEHIND photo frame (z-0) -->
+          <span class="absolute inset-0 -m-5 sm:-m-7 lg:-m-9 pointer-events-none z-0 flex items-center justify-center" data-aos="zoom-in" data-aos-duration="1800">
+            <img 
+              src="/image/bunga_bingkai.png" 
+              alt="Bingkai Bunga" 
+              class="w-[155%] h-[155%] max-w-none object-contain animate-sway pointer-events-none select-none scale-x-[-1] drop-shadow-sm" 
+            />
+          </span>
+
+          <!-- Main Photo Frame (z-10) -->
+          <div class="w-20 h-20 sm:w-24 sm:h-24 lg:w-32 lg:h-32 rounded-full bg-gradient-to-b from-[#FAF6ED] to-[#F5EBD9] border-4 border-white shadow-md flex items-center justify-center text-[#7A5C43] font-serif-wedding text-2xl sm:text-3xl lg:text-4xl font-bold overflow-hidden relative z-10">
+            <img 
+              src={bridePhoto} 
+              alt={`Foto ${brideName}`} 
+              class="w-full h-full object-cover"
+              onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
+            />
+            <span class="hidden w-full h-full items-center justify-center">{brideName ? brideName.charAt(0) : "M"}</span>
+          </div>
+
+          <!-- Foreground Flower (bunga_depan.png) - IN FRONT of photo frame (z-20) at bottom tip of frame -->
+          <span class="absolute -bottom-6 sm:-bottom-8 lg:-bottom-10 left-1/2 -translate-x-1/2 pointer-events-none z-20 w-16 sm:w-20 lg:w-26 flex justify-center" data-aos="zoom-in" data-aos-duration="2000">
+            <img 
+              src="/image/bunga_depan.png" 
+              alt="Bunga Depan Frame" 
+              class="w-full h-auto object-contain drop-shadow-md pointer-events-none select-none scale-x-[-1]" 
+            />
+          </span>
         </div>
 
         <!-- Bride Text -->
-        <div class="flex-1 md:flex-initial space-y-1 min-w-0">
+        <div class="flex-1 md:flex-initial space-y-1 min-w-0 pl-2 sm:pl-4 lg:pl-6">
           <h3 class="font-script text-xl sm:text-2xl md:text-3xl lg:text-4xl text-[#7A5C43] font-normal leading-snug whitespace-nowrap">
             Monica Ramadhaniyah
           </h3>
@@ -138,12 +234,12 @@ const {
       </div>
 
       <div class="p-6 sm:p-10 rounded-3xl bg-white/95 backdrop-blur-sm border border-[#E5DCC5] shadow-xl shadow-[#6E4F38]/10 space-y-6 relative overflow-hidden">
-        <!-- Card Corner Ornaments -->
-        <span class="absolute -top-4 -left-4" data-aos="zoom-in">
-          <img src="/image/sudut_bunga.png" alt="Ornamen Bunga" class="w-28 sm:w-36 md:w-44 h-auto opacity-85 pointer-events-none select-none" />
+        <!-- Card Corner Ornaments (Clean & Unobtrusive) -->
+        <span class="absolute -top-4 -left-4 z-10" data-aos="zoom-in">
+          <img src="/image/sudut_bunga.png" alt="Ornamen Bunga" class="w-24 sm:w-32 h-auto opacity-70 pointer-events-none select-none" />
         </span>
-        <span class="absolute -bottom-4 -right-4" data-aos="zoom-in" data-aos-delay="150">
-          <img src="/image/sudut_bunga.png" alt="Ornamen Bunga" class="w-28 sm:w-36 md:w-44 h-auto opacity-85 pointer-events-none select-none scale-x-[-1] scale-y-[-1]" />
+        <span class="absolute -bottom-4 -right-4 z-10" data-aos="zoom-in" data-aos-delay="150">
+          <img src="/image/sudut_bunga.png" alt="Ornamen Bunga" class="w-24 sm:w-32 h-auto opacity-70 pointer-events-none select-none scale-x-[-1] scale-y-[-1]" />
         </span>
 
         <!-- Arabic Text -->

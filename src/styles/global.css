@@ -34,3 +34,12 @@ body.lock-scroll {
 .animate-pulse-subtle {
   animation: pulse-subtle 3s ease-in-out infinite;
 }
+
+@keyframes sway-gentle {
+  0%, 100% { transform: rotate(-5deg); }
+  50% { transform: rotate(5deg); }
+}
+
+.animate-sway {
+  animation: sway-gentle 4s ease-in-out infinite;
+}
