@@ -79,44 +79,69 @@ const brideName = "Dania";
 
     if (btnOpen && coverScreen) {
       btnOpen.addEventListener('click', () => {
+        const flash = document.getElementById('flash-overlay');
+
+        // 1. Tampilkan main content di background (tersembunyi di balik cover)
         document.body.classList.remove('lock-scroll');
+        if (mainContent) mainContent.classList.remove('hidden');
 
-        if (mainContent) {
-          mainContent.classList.remove('hidden');
-        }
-
-        coverScreen.classList.add('opacity-0', 'pointer-events-none', '-translate-y-full');
-
-        if (navbar) {
-          navbar.classList.remove('hidden');
-          setTimeout(() => {
-            navbar.classList.remove('opacity-0');
-          }, 100);
-        }
-
+        // 2. Mulai audio
         toggleAudio();
 
+        // 3. FLASH — expand dari tengah, putih bersinar
+        if (flash) {
+          flash.style.display = 'block';
+          flash.style.transition = 'none';
+          flash.style.opacity = '0';
+          flash.style.transform = 'scale(0.3)';
+
+          // Frame berikutnya: trigger expand + brighten
+          requestAnimationFrame(() => {
+            requestAnimationFrame(() => {
+              flash.style.transition = 'opacity 0.35s ease-out, transform 0.45s cubic-bezier(0.16,1,0.3,1)';
+              flash.style.opacity = '1';
+              flash.style.transform = 'scale(3)';
+            });
+          });
+        }
+
+        // 4. Saat flash puncak (0.35s) — sembunyikan cover, tampilkan navbar
         setTimeout(() => {
+          // Cover langsung hilang (tersembunyi di balik flash)
+          coverScreen.style.display = 'none';
+
+          if (navbar) {
+            navbar.classList.remove('hidden');
+            setTimeout(() => navbar.classList.remove('opacity-0'), 50);
+          }
+
+          // Init AOS
           if (typeof AOS !== 'undefined') {
             AOS.init({
               duration: 2000,
               easing: 'ease-out-cubic',
               once: true,
               offset: 20,
-              startEvent: 'DOMContentLoaded',
               anchorPlacement: 'top-bottom',
             });
             AOS.refreshHard();
           }
-        }, 200);
 
-        if (mainContent) {
-          mainContent.scrollIntoView({ behavior: 'smooth' });
-        }
+          if (mainContent) mainContent.scrollIntoView({ behavior: 'instant' });
+        }, 350);
 
+        // 5. Flash fade out — sinar menghilang perlahan
         setTimeout(() => {
-          coverScreen.style.display = 'none';
-        }, 1000);
+          if (flash) {
+            flash.style.transition = 'opacity 0.7s ease-in';
+            flash.style.opacity = '0';
+          }
+        }, 400);
+
+        // 6. Bersihkan flash setelah selesai
+        setTimeout(() => {
+          if (flash) flash.style.display = 'none';
+        }, 1100);
       });
     }
   });

@@ -52,6 +52,11 @@ const { title = "The Wedding of Adam & Hawa" } = Astro.props;
 			<slot />
 		</div>
 
+		<!-- FLASH OVERLAY — dipicu saat tombol buka undangan ditekan -->
+		<div id="flash-overlay" class="fixed inset-0 z-50 pointer-events-none"
+			style="opacity:0; background: radial-gradient(circle at center, #fff9f0 0%, #f5e6cc 40%, transparent 70%); display:none;">
+		</div>
+
 	</body>
 	<!-- AOS Init -->
 	<script src="https://unpkg.com/aos@2.3.4/dist/aos.js" is:inline></script>
