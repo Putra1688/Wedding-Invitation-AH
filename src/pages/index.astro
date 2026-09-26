@@ -45,44 +45,7 @@ const brideName = "Dania";
 
 <script is:inline define:vars={{ weddingDate }}>
   document.addEventListener('DOMContentLoaded', () => {
-    // 1. Ambil Nama Tamu dari URL Parameter (?to=Nama+Tamu)
-    const urlParams = new URLSearchParams(window.location.search);
-    const guestParam = urlParams.get('to');
-    const guestNameEl = document.getElementById('guest-name');
-    if (guestParam && guestNameEl) {
-      guestNameEl.textContent = guestParam;
-    }
-
-    // 2. Countdown Timer Logic
-    const targetTime = new Date(weddingDate).getTime();
-
-    function updateCountdown() {
-      const now = new Date().getTime();
-      const difference = targetTime - now;
-
-      if (difference <= 0) {
-        document.getElementById('cd-days').textContent = '00';
-        document.getElementById('cd-hours').textContent = '00';
-        document.getElementById('cd-minutes').textContent = '00';
-        document.getElementById('cd-seconds').textContent = '00';
-        return;
-      }
-
-      const days = Math.floor(difference / (1000 * 60 * 60 * 24));
-      const hours = Math.floor((difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-      const minutes = Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60));
-      const seconds = Math.floor((difference % (1000 * 60)) / 1000);
-
-      document.getElementById('cd-days').textContent = days < 10 ? '0' + days : days;
-      document.getElementById('cd-hours').textContent = hours < 10 ? '0' + hours : hours;
-      document.getElementById('cd-minutes').textContent = minutes < 10 ? '0' + minutes : minutes;
-      document.getElementById('cd-seconds').textContent = seconds < 10 ? '0' + seconds : seconds;
-    }
-
-    updateCountdown();
-    setInterval(updateCountdown, 1000);
-
-    // 3. Audio & Navbar Unlock Logic
+    // Audio & Navbar Unlock Logic
     const btnOpen = document.getElementById('btn-open-invitation');
     const coverScreen = document.getElementById('cover-screen');
     const mainContent = document.getElementById('main-content');
@@ -116,18 +79,14 @@ const brideName = "Dania";
 
     if (btnOpen && coverScreen) {
       btnOpen.addEventListener('click', () => {
-        // Unlock body scroll
         document.body.classList.remove('lock-scroll');
 
-        // Unhide main content agar AOS baru mendeteksi elemen saat cover dibuka
         if (mainContent) {
           mainContent.classList.remove('hidden');
         }
 
-        // Smooth transition out cover screen
         coverScreen.classList.add('opacity-0', 'pointer-events-none', '-translate-y-full');
 
-        // Tampilkan & aktifkan Navbar setelah cover dibuka!
         if (navbar) {
           navbar.classList.remove('hidden');
           setTimeout(() => {
@@ -135,11 +94,8 @@ const brideName = "Dania";
           }, 100);
         }
 
-        // Putar audio secara otomatis saat undangan dibuka
         toggleAudio();
 
-        // Trigger AOS init BARU setelah main-content ditampilkan
-        // Diberi delay 200ms agar browser selesai render element sebelum AOS mendeteksi posisinya
         setTimeout(() => {
           if (typeof AOS !== 'undefined') {
             AOS.init({
@@ -154,12 +110,10 @@ const brideName = "Dania";
           }
         }, 200);
 
-        // Scroll to main content smoothly
         if (mainContent) {
           mainContent.scrollIntoView({ behavior: 'smooth' });
         }
 
-        // Hide cover screen completely after transition completes
         setTimeout(() => {
           coverScreen.style.display = 'none';
         }, 1000);
