@@ -1,0 +1,256 @@
+---
+import LayoutPage from '../layouts/LayoutPage.astro';
+
+const groomName = "Arik";
+const brideName = "Dania";
+const weddingDate = "Ahad, 15 November 2026";
+const weddingPlace = "Pondok Pesantren Anwarul Huda, Kota Malang";
+---
+
+<LayoutPage title={`Konfirmasi Kehadiran — ${groomName} & ${brideName}`}>
+  <main class="min-h-screen flex flex-col items-center px-4 pt-20 pb-16 sm:pt-24 sm:pb-20 relative">
+
+    <!-- Back Button -->
+    <a 
+      href="/"
+      class="fixed top-5 left-5 z-50 inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/90 border border-[#E5DCC5] shadow-md text-[#6E4F38] text-xs font-semibold hover:bg-[#FAF6ED] transition-all duration-300 hover:scale-105"
+    >
+      <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/>
+      </svg>
+      Kembali
+    </a>
+
+    <div class="w-full max-w-xl mx-auto space-y-8">
+
+      <!-- Header -->
+      <div class="text-center space-y-3 animate-fadein">
+        <span class="text-xs uppercase tracking-[0.35em] text-[#8C6D53] font-bold block">Konfirmasi Kehadiran</span>
+        <h1 class="font-elegant-serif text-3xl sm:text-4xl font-semibold text-[#4A3525]">
+          {groomName} <span class="font-script text-[#8C6D53] text-3xl sm:text-4xl font-normal mx-1">&</span> {brideName}
+        </h1>
+        <div class="w-20 h-0.5 bg-gradient-to-r from-transparent via-[#8C6D53] to-transparent mx-auto"></div>
+        <p class="text-xs sm:text-sm text-[#594433] leading-relaxed font-light max-w-sm mx-auto">
+          Kehadiran Anda adalah kehormatan bagi kami. Mohon konfirmasi kehadiran sebelum <strong class="font-semibold text-[#4A3525]">8 November 2026</strong>.
+        </p>
+      </div>
+
+      <!-- Info Acara Ring -->
+      <div class="flex items-center justify-center gap-4 text-center animate-fadein">
+        <div class="flex-1 p-3 rounded-2xl bg-white/80 border border-[#E5DCC5] shadow-sm space-y-1">
+          <p class="text-[10px] uppercase tracking-wider text-[#8C6D53] font-bold">Tanggal</p>
+          <p class="text-xs sm:text-sm font-semibold text-[#4A3525]">{weddingDate}</p>
+        </div>
+        <div class="w-px h-10 bg-[#E5DCC5]"></div>
+        <div class="flex-1 p-3 rounded-2xl bg-white/80 border border-[#E5DCC5] shadow-sm space-y-1">
+          <p class="text-[10px] uppercase tracking-wider text-[#8C6D53] font-bold">Lokasi</p>
+          <p class="text-xs sm:text-sm font-semibold text-[#4A3525] leading-snug">{weddingPlace}</p>
+        </div>
+      </div>
+
+      <!-- Form Card -->
+      <div class="relative bg-white/95 border border-[#E5DCC5] rounded-3xl shadow-xl shadow-[#6E4F38]/10 p-8 sm:p-10 overflow-hidden animate-fadein">
+        <!-- Card Corner Ornaments -->
+        <img src="/image/sudut_bunga.png" alt="" class="absolute -top-4 -left-4 w-24 sm:w-32 h-auto opacity-70 pointer-events-none select-none animate-fadein" />
+        <img src="/image/sudut_bunga.png" alt="" class="absolute -bottom-4 -right-4 w-24 sm:w-32 h-auto opacity-70 pointer-events-none select-none scale-x-[-1] scale-y-[-1] animate-fadein" />
+
+        <form id="form-konfirmasi" class="space-y-5 relative z-10">
+
+          <!-- Nama -->
+          <div class="space-y-1.5">
+            <label for="nama" class="block text-xs font-semibold text-[#4A3525] uppercase tracking-wider">
+              Nama Lengkap <span class="text-red-400">*</span>
+            </label>
+            <input 
+              type="text" 
+              id="nama" 
+              name="nama"
+              required
+              placeholder="Tulis nama lengkap Anda..."
+              class="w-full px-4 py-3 rounded-xl border border-[#E5DCC5] bg-[#FAF6ED]/60 text-[#4A3525] text-sm placeholder:text-[#B8A99A] focus:outline-none focus:border-[#8C6D53] focus:ring-2 focus:ring-[#8C6D53]/20 transition-all duration-200"
+            />
+          </div>
+
+          <!-- Jumlah Tamu -->
+          <div class="space-y-1.5">
+            <label for="jumlah" class="block text-xs font-semibold text-[#4A3525] uppercase tracking-wider">
+              Jumlah Tamu <span class="text-red-400">*</span>
+            </label>
+            <select 
+              id="jumlah" 
+              name="jumlah"
+              required
+              class="w-full px-4 py-3 rounded-xl border border-[#E5DCC5] bg-[#FAF6ED]/60 text-[#4A3525] text-sm focus:outline-none focus:border-[#8C6D53] focus:ring-2 focus:ring-[#8C6D53]/20 transition-all duration-200 cursor-pointer"
+            >
+              <option value="" disabled selected>Pilih jumlah tamu...</option>
+              <option value="1">1 orang (saya sendiri)</option>
+              <option value="2">2 orang</option>
+              <option value="3">3 orang</option>
+              <option value="4">4 orang</option>
+              <option value="5+">5 orang atau lebih</option>
+            </select>
+          </div>
+
+          <!-- Konfirmasi Kehadiran -->
+          <div class="space-y-2">
+            <label class="block text-xs font-semibold text-[#4A3525] uppercase tracking-wider">
+              Konfirmasi Kehadiran <span class="text-red-400">*</span>
+            </label>
+            <div class="grid grid-cols-2 gap-3">
+              <label class="konfirmasi-option cursor-pointer">
+                <input type="radio" name="hadir" value="hadir" required class="sr-only peer" />
+                <div class="flex items-center justify-center gap-1.5 px-3 py-3 rounded-xl border-2 border-[#E5DCC5] bg-[#FAF6ED]/60 text-[#7A5C43] text-xs font-semibold transition-all duration-200 peer-checked:border-[#6E4F38] peer-checked:bg-[#6E4F38] peer-checked:text-white hover:border-[#8C6D53] whitespace-nowrap">
+                  <svg class="w-3.5 h-3.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/>
+                  </svg>
+                  Insyaallah Hadir
+                </div>
+              </label>
+              <label class="konfirmasi-option cursor-pointer">
+                <input type="radio" name="hadir" value="tidak" class="sr-only peer" />
+                <div class="flex items-center justify-center gap-1.5 px-3 py-3 rounded-xl border-2 border-[#E5DCC5] bg-[#FAF6ED]/60 text-[#7A5C43] text-xs font-semibold transition-all duration-200 peer-checked:border-[#A0796A] peer-checked:bg-[#A0796A] peer-checked:text-white hover:border-[#8C6D53] whitespace-nowrap">
+                  <svg class="w-3.5 h-3.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M6 18L18 6M6 6l12 12"/>
+                  </svg>
+                  Berhalangan
+                </div>
+              </label>
+            </div>
+          </div>
+
+          <!-- Ucapan / Pesan -->
+          <div class="space-y-1.5">
+            <label for="ucapan" class="block text-xs font-semibold text-[#4A3525] uppercase tracking-wider">
+              Ucapan & Doa <span class="text-[#B8A99A] font-normal normal-case">(opsional)</span>
+            </label>
+            <textarea 
+              id="ucapan" 
+              name="ucapan"
+              rows="3"
+              placeholder="Tulis ucapan & doa untuk kedua mempelai..."
+              class="w-full px-4 py-3 rounded-xl border border-[#E5DCC5] bg-[#FAF6ED]/60 text-[#4A3525] text-sm placeholder:text-[#B8A99A] focus:outline-none focus:border-[#8C6D53] focus:ring-2 focus:ring-[#8C6D53]/20 transition-all duration-200 resize-none"
+            ></textarea>
+          </div>
+
+          <!-- Submit Button -->
+          <button 
+            type="submit"
+            id="btn-submit"
+            class="w-full inline-flex items-center justify-center gap-2.5 px-8 py-4 rounded-full bg-gradient-to-r from-[#7A5C43] via-[#6E4F38] to-[#593E2B] text-white font-semibold text-sm shadow-md hover:shadow-lg transition-all duration-300 hover:scale-[1.02] active:scale-95 cursor-pointer disabled:opacity-60 disabled:cursor-not-allowed disabled:scale-100"
+          >
+            <svg id="icon-send" class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"/>
+            </svg>
+            <svg id="icon-loading" class="w-4 h-4 animate-spin hidden" fill="none" viewBox="0 0 24 24">
+              <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"/>
+              <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8v8H4z"/>
+            </svg>
+            <span id="btn-label">Kirim Konfirmasi</span>
+          </button>
+
+          <p class="text-center text-[10px] text-[#B8A99A]">
+            Data konfirmasi akan tersimpan ke spreadsheet panitia.
+          </p>
+
+        </form>
+
+        <!-- Success State (hidden by default) -->
+        <div id="success-state" class="hidden space-y-4 text-center py-4 relative z-10">
+          <div class="w-16 h-16 rounded-full bg-[#F0F9F4] border-2 border-emerald-300 flex items-center justify-center mx-auto">
+            <svg class="w-8 h-8 text-emerald-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/>
+            </svg>
+          </div>
+          <h3 class="font-serif-wedding text-2xl text-[#4A3525] font-semibold">Terima Kasih!</h3>
+          <p class="text-sm text-[#594433] leading-relaxed" id="success-msg"></p>
+          <a href="/" class="inline-flex items-center gap-2 text-xs text-[#8C6D53] font-semibold hover:underline mt-2">
+            <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/>
+            </svg>
+            Kembali ke undangan
+          </a>
+        </div>
+
+      </div><!-- end Form Card -->
+
+      <!-- Footer note -->
+      <p class="text-center text-xs text-[#8C6D53] font-medium animate-fadein">
+        Jazakumullahu khairan atas konfirmasi kehadiran Anda 🤍
+      </p>
+
+    </div><!-- end max-w-xl -->
+  </main>
+</LayoutPage>
+
+<script is:inline>
+  document.addEventListener('DOMContentLoaded', () => {
+    // ============================================================
+    // GANTI URL INI dengan URL deployment Google Apps Script Anda
+    // Panduan setup ada di: README-SPREADSHEET.md
+    // ============================================================
+    const APPS_SCRIPT_URL = 'PASTE_YOUR_APPS_SCRIPT_URL_HERE';
+
+    const form        = document.getElementById('form-konfirmasi');
+    const btnSubmit   = document.getElementById('btn-submit');
+    const btnLabel    = document.getElementById('btn-label');
+    const iconSend    = document.getElementById('icon-send');
+    const iconLoading = document.getElementById('icon-loading');
+    const successState = document.getElementById('success-state');
+    const successMsg  = document.getElementById('success-msg');
+
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+
+      const nama   = document.getElementById('nama').value.trim();
+      const jumlah = document.getElementById('jumlah').value;
+      const hadir  = form.querySelector('input[name="hadir"]:checked')?.value;
+      const ucapan = document.getElementById('ucapan').value.trim();
+
+      if (!nama || !jumlah || !hadir) {
+        alert('Mohon lengkapi semua field yang wajib diisi.');
+        return;
+      }
+
+      // Loading state
+      btnSubmit.disabled = true;
+      btnLabel.textContent = 'Mengirim...';
+      iconSend.classList.add('hidden');
+      iconLoading.classList.remove('hidden');
+
+      const hadirText = hadir === 'hadir' ? 'Insyaallah Hadir' : 'Berhalangan';
+
+      // Timestamp WIB
+      const now = new Date();
+      const wib = new Date(now.getTime() + (7 * 60 * 60 * 1000));
+      const timestamp = wib.toISOString().replace('T', ' ').substring(0, 19) + ' WIB';
+
+      const payload = { nama, jumlah, hadir: hadirText, ucapan, timestamp };
+
+      try {
+        await fetch(APPS_SCRIPT_URL, {
+          method: 'POST',
+          mode: 'no-cors', // Apps Script requires no-cors
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(payload),
+        });
+
+        // Karena no-cors tidak bisa baca response, anggap sukses jika tidak throw
+        form.classList.add('hidden');
+        successState.classList.remove('hidden');
+
+        const hadirLabel = hadir === 'hadir' ? 'kehadiran Anda' : 'ketidakhadiran Anda';
+        successMsg.textContent =
+          `Konfirmasi ${hadirLabel} atas nama "${nama}" telah tercatat. Semoga Allah memudahkan segala urusan Anda.`;
+
+      } catch (err) {
+        // Reset loading state jika error
+        btnSubmit.disabled = false;
+        btnLabel.textContent = 'Kirim Konfirmasi';
+        iconSend.classList.remove('hidden');
+        iconLoading.classList.add('hidden');
+        alert('Gagal mengirim konfirmasi. Periksa koneksi internet Anda dan coba lagi.');
+        console.error(err);
+      }
+    });
+  });
+</script>

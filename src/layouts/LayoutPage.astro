@@ -1,0 +1,50 @@
+---
+// Layout untuk halaman standalone (bukan cover screen).
+// Tidak ada lock-scroll — scroll langsung aktif.
+import '../styles/global.css';
+
+interface Props {
+  title?: string;
+}
+
+const { title = "Undangan Pernikahan" } = Astro.props;
+---
+
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Alex+Brush&family=Cinzel:wght@400;500;600;700&family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <meta name="generator" content={Astro.generator} />
+    <title>{title}</title>
+  </head>
+  <body class="bg-gradient-to-b from-[#F5EBE0] via-[#FAF6ED] to-[#EFE3D3] text-[#4A3525] antialiased selection:bg-[#8C6D53]/20 selection:text-[#4A3525] relative min-h-screen">
+
+    <!-- Background Layer -->
+    <div class="fixed inset-0 z-0 pointer-events-none overflow-hidden select-none">
+      <img
+        src="/image/bgbunga.jpg"
+        alt=""
+        class="block md:hidden absolute inset-0 w-full h-full object-cover opacity-30 min-h-screen"
+      />
+      <div class="hidden md:flex absolute inset-0 items-center justify-center">
+        <img
+          src="/image/bgbunga.jpg"
+          alt=""
+          class="w-[100vh] h-[100vw] max-w-none object-cover opacity-35 rotate-90 scale-125"
+        />
+      </div>
+      <div class="absolute inset-0 bg-gradient-to-b from-[#FAF4EA]/50 via-[#F3E7D3]/45 to-[#EADBC4]/55"></div>
+    </div>
+
+    <!-- Content -->
+    <div class="relative z-10">
+      <slot />
+    </div>
+
+  </body>
+</html>
