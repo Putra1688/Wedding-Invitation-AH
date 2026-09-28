@@ -75,6 +75,16 @@ const { groomName, brideName } = Astro.props;
   <!-- ── CENTER: GREETINGS + NAMES + COUPLE PHOTO ── -->
   <div class="relative z-10 mt-0 mb-16 sm:my-auto flex flex-col items-center gap-1 sm:gap-3 shrink cover-fadein" style="animation-delay:0.15s">
 
+    <!-- ── GUEST NAME BLOCK (hidden by default, shown via JS if ?to= param exists) ── -->
+    <div id="guest-block" class="hidden w-full" style="animation-delay:0.1s">
+      <div class="mx-auto max-w-xs sm:max-w-sm px-4 py-2 rounded-2xl bg-white/80 border border-[#E5DCC5] shadow-md shadow-[#6E4F38]/10 relative overflow-hidden">
+        <img src="/image/sudut_bunga.png" alt="" class="absolute -top-3 -left-3 w-14 h-auto opacity-70 pointer-events-none select-none" />
+        <img src="/image/sudut_bunga.png" alt="" class="absolute -bottom-3 -right-3 w-14 h-auto opacity-70 pointer-events-none select-none scale-x-[-1] scale-y-[-1]" />
+        <p class="text-[9px] sm:text-[10px] uppercase tracking-[0.2em] text-[#8C6D53] font-semibold relative z-10">Kepada Yth. Bapak/Ibu/Saudara/i</p>
+        <p id="guest-name-display" class="text-sm sm:text-base font-bold text-[#4A3525] tracking-wide mt-0.5 relative z-10">—</p>
+      </div>
+    </div>
+
     <!-- Salam & Teks Undangan (Di atas Nama) -->
     <div class="cover-fadein space-y-0.5" style="animation-delay:0.2s">
       <p class="text-[#594433] text-[11px] sm:text-base font-light italic tracking-wider">
@@ -278,5 +288,15 @@ const { groomName, brideName } = Astro.props;
   #cover-screen {
     -webkit-overflow-scrolling: touch;
     overscroll-behavior: contain;
+  }
+
+  /* Guest block — fade in saat JS menampilkannya */
+  #guest-block.show {
+    animation: guestFadeIn 0.6s cubic-bezier(0.16,1,0.3,1) forwards;
+  }
+
+  @keyframes guestFadeIn {
+    from { opacity: 0; transform: translateY(-8px) scale(0.96); }
+    to   { opacity: 1; transform: translateY(0)    scale(1); }
   }
 </style>

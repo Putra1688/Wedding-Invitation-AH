@@ -45,6 +45,22 @@ const brideName = "Dania";
 
 <script is:inline define:vars={{ weddingDate }}>
   document.addEventListener('DOMContentLoaded', () => {
+    // ── GUEST NAME dari URL ?to= ──
+    const urlParams = new URLSearchParams(window.location.search);
+    const guestParam = urlParams.get('to');
+    const guestBlock = document.getElementById('guest-block');
+    const guestNameDisplay = document.getElementById('guest-name-display');
+
+    if (guestParam && guestParam.trim() !== '') {
+      const guestName = decodeURIComponent(guestParam.replace(/\+/g, ' ')).trim();
+      if (guestNameDisplay) guestNameDisplay.textContent = guestName;
+      if (guestBlock) {
+        guestBlock.classList.remove('hidden');
+        // Trigger animasi setelah unhide (butuh 1 frame)
+        requestAnimationFrame(() => guestBlock.classList.add('show'));
+      }
+    }
+    // Jika tidak ada param: guestBlock tetap hidden (default)
     // Audio & Navbar Unlock Logic
     const btnOpen = document.getElementById('btn-open-invitation');
     const coverScreen = document.getElementById('cover-screen');

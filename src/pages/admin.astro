@@ -1,0 +1,392 @@
+---
+import LayoutPage from '../layouts/LayoutPage.astro';
+
+const groomName = "Arik";
+const brideName = "Dania";
+const siteUrl = "https://anwarulhuda.netlify.app";
+const waMessageTemplate = (name: string, link: string) =>
+  `Assalamu'alaikum Warahmatullahi Wabarakatuh 🌸\n\nYth. ${name},\n\nDengan penuh kebahagiaan, kami mengundang Bapak/Ibu/Saudara/i untuk hadir pada pernikahan putra-putri kami:\n\n*${groomName} & ${brideName}*\n📅 Ahad, 15 November 2026\n📍 Pondok Pesantren Anwarul Huda, Kota Malang\n\nSilakan buka undangan digital Anda di sini:\n${link}\n\nMohon konfirmasi kehadiran melalui link undangan tersebut.\n\nJazakumullahu khairan atas doa & kehadirannya 🤍`;
+---
+
+<LayoutPage title="Admin — Generator Link Undangan">
+  <main class="min-h-screen px-4 pt-16 pb-20 relative">
+
+    <!-- Login Gate -->
+    <div id="login-gate" class="fixed inset-0 z-50 flex items-center justify-center bg-[#F5EBE0]/95 backdrop-blur-sm px-4">
+      <div class="w-full max-w-sm bg-white/95 border border-[#E5DCC5] rounded-3xl shadow-xl p-8 relative overflow-hidden">
+        <img src="/image/sudut_bunga.png" alt="" class="absolute -top-4 -left-4 w-20 h-auto opacity-60 pointer-events-none" />
+        <img src="/image/sudut_bunga.png" alt="" class="absolute -bottom-4 -right-4 w-20 h-auto opacity-60 pointer-events-none scale-x-[-1] scale-y-[-1]" />
+
+        <div class="text-center mb-6 relative z-10">
+          <p class="text-xs uppercase tracking-[0.3em] text-[#8C6D53] font-bold mb-1">Admin Panel</p>
+          <h2 class="font-elegant-serif text-2xl text-[#4A3525] font-semibold">Generator Link Undangan</h2>
+          <p class="text-xs text-[#8C6D53] mt-1">{groomName} & {brideName}</p>
+        </div>
+
+        <form id="login-form" class="space-y-4 relative z-10">
+          <div>
+            <label class="block text-xs font-semibold text-[#4A3525] uppercase tracking-wider mb-1.5">Passcode</label>
+            <input
+              type="password"
+              id="passcode-input"
+              placeholder="Masukkan passcode admin..."
+              class="w-full px-4 py-3 rounded-xl border border-[#E5DCC5] bg-[#FAF6ED]/60 text-[#4A3525] text-sm placeholder:text-[#B8A99A] focus:outline-none focus:border-[#8C6D53] focus:ring-2 focus:ring-[#8C6D53]/20 transition-all"
+            />
+            <p id="login-error" class="hidden text-xs text-red-500 mt-1.5">Passcode salah. Coba lagi.</p>
+          </div>
+          <button type="submit" class="w-full py-3 rounded-full bg-gradient-to-r from-[#7A5C43] via-[#6E4F38] to-[#593E2B] text-white font-semibold text-sm transition-all hover:scale-[1.02] active:scale-95">
+            Masuk
+          </button>
+        </form>
+      </div>
+    </div>
+
+    <!-- Dashboard (hidden until login) -->
+    <div id="dashboard" class="hidden max-w-2xl mx-auto space-y-8">
+
+      <!-- Header -->
+      <div class="text-center space-y-2">
+        <div class="flex items-center justify-between">
+          <span></span>
+          <div>
+            <p class="text-xs uppercase tracking-[0.3em] text-[#8C6D53] font-bold">Admin Panel</p>
+            <h1 class="font-elegant-serif text-2xl sm:text-3xl text-[#4A3525] font-semibold">Generator Link Undangan</h1>
+            <p class="text-xs text-[#8C6D53]">{groomName} & {brideName} · 15 November 2026</p>
+          </div>
+          <button id="btn-logout" class="text-[10px] text-[#8C6D53] border border-[#E5DCC5] px-3 py-1.5 rounded-full hover:bg-[#FAF6ED] transition-all">
+            Keluar
+          </button>
+        </div>
+        <div class="w-20 h-0.5 bg-gradient-to-r from-transparent via-[#8C6D53] to-transparent mx-auto"></div>
+      </div>
+
+      <!-- Generator Form Card -->
+      <div class="bg-white/95 border border-[#E5DCC5] rounded-3xl shadow-xl p-6 sm:p-8 relative overflow-hidden">
+        <img src="/image/sudut_bunga.png" alt="" class="absolute -top-4 -left-4 w-20 h-auto opacity-60 pointer-events-none" />
+        <img src="/image/sudut_bunga.png" alt="" class="absolute -bottom-4 -right-4 w-20 h-auto opacity-60 pointer-events-none scale-x-[-1] scale-y-[-1]" />
+
+        <h2 class="text-sm font-bold text-[#4A3525] uppercase tracking-wider mb-5 relative z-10">Buat Link Undangan Baru</h2>
+
+        <div class="space-y-4 relative z-10">
+          <!-- Nama Tamu -->
+          <div>
+            <label class="block text-xs font-semibold text-[#4A3525] uppercase tracking-wider mb-1.5">
+              Nama Tamu <span class="text-red-400">*</span>
+            </label>
+            <input
+              type="text"
+              id="input-nama"
+              placeholder="Contoh: Bapak Ahmad Fauzi"
+              class="w-full px-4 py-3 rounded-xl border border-[#E5DCC5] bg-[#FAF6ED]/60 text-[#4A3525] text-sm placeholder:text-[#B8A99A] focus:outline-none focus:border-[#8C6D53] focus:ring-2 focus:ring-[#8C6D53]/20 transition-all"
+            />
+          </div>
+
+          <!-- Nomor WA -->
+          <div>
+            <label class="block text-xs font-semibold text-[#4A3525] uppercase tracking-wider mb-1.5">
+              Nomor WhatsApp <span class="text-[#B8A99A] font-normal normal-case">(opsional, untuk kirim langsung)</span>
+            </label>
+            <div class="flex gap-2">
+              <span class="flex items-center px-3 rounded-xl border border-[#E5DCC5] bg-[#FAF6ED] text-[#7A5C43] text-sm font-semibold">+62</span>
+              <input
+                type="tel"
+                id="input-wa"
+                placeholder="812 3456 7890"
+                class="flex-1 px-4 py-3 rounded-xl border border-[#E5DCC5] bg-[#FAF6ED]/60 text-[#4A3525] text-sm placeholder:text-[#B8A99A] focus:outline-none focus:border-[#8C6D53] focus:ring-2 focus:ring-[#8C6D53]/20 transition-all"
+              />
+            </div>
+          </div>
+
+          <!-- Generate Button -->
+          <button
+            id="btn-generate"
+            class="w-full py-3 rounded-full bg-gradient-to-r from-[#7A5C43] via-[#6E4F38] to-[#593E2B] text-white font-semibold text-sm shadow-md transition-all hover:scale-[1.02] active:scale-95"
+          >
+            Generate Link
+          </button>
+        </div>
+
+        <!-- Result Box -->
+        <div id="result-box" class="hidden mt-6 space-y-4 relative z-10">
+          <div class="h-px bg-[#E5DCC5]"></div>
+          <p class="text-xs font-semibold text-[#4A3525] uppercase tracking-wider">Link Undangan:</p>
+          <div class="flex items-center gap-2 p-3 rounded-xl bg-[#FAF6ED] border border-[#E5DCC5] break-all">
+            <p id="result-link" class="text-xs text-[#4A3525] flex-1 font-mono"></p>
+          </div>
+          <!-- Action Buttons -->
+          <div class="flex flex-wrap gap-2">
+            <button
+              id="btn-copy"
+              class="inline-flex items-center gap-1.5 px-4 py-2.5 rounded-full bg-[#4A3525] text-white text-xs font-semibold transition-all hover:scale-105 active:scale-95"
+            >
+              <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 5H6a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2v-1M8 5a2 2 0 002 2h2a2 2 0 002-2M8 5a2 2 0 012-2h2a2 2 0 012 2"/>
+              </svg>
+              Salin Link
+            </button>
+            <button
+              id="btn-wa"
+              class="inline-flex items-center gap-1.5 px-4 py-2.5 rounded-full bg-[#25D366] text-white text-xs font-semibold transition-all hover:scale-105 active:scale-95"
+            >
+              <svg class="w-3.5 h-3.5 fill-current" viewBox="0 0 24 24">
+                <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+              </svg>
+              Kirim via WhatsApp
+            </button>
+            <button
+              id="btn-preview"
+              class="inline-flex items-center gap-1.5 px-4 py-2.5 rounded-full border-2 border-[#8C6D53] text-[#6E4F38] text-xs font-semibold transition-all hover:bg-[#FAF6ED] hover:scale-105 active:scale-95"
+            >
+              <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/>
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"/>
+              </svg>
+              Preview
+            </button>
+          </div>
+          <!-- Toast copy -->
+          <p id="copy-toast" class="hidden text-xs text-emerald-600 font-semibold">✓ Link berhasil disalin!</p>
+        </div>
+      </div>
+
+      <!-- Riwayat Tamu -->
+      <div class="bg-white/95 border border-[#E5DCC5] rounded-3xl shadow-xl p-6 sm:p-8 relative overflow-hidden">
+        <img src="/image/sudut_bunga.png" alt="" class="absolute -top-4 -left-4 w-20 h-auto opacity-60 pointer-events-none" />
+        <img src="/image/sudut_bunga.png" alt="" class="absolute -bottom-4 -right-4 w-20 h-auto opacity-60 pointer-events-none scale-x-[-1] scale-y-[-1]" />
+
+        <div class="flex items-center justify-between mb-4 relative z-10">
+          <h2 class="text-sm font-bold text-[#4A3525] uppercase tracking-wider">Riwayat Tamu</h2>
+          <button id="btn-clear-history" class="text-[10px] text-red-400 border border-red-200 px-2.5 py-1 rounded-full hover:bg-red-50 transition-all">
+            Hapus Semua
+          </button>
+        </div>
+
+        <div id="history-empty" class="text-center py-6 text-xs text-[#B8A99A] relative z-10">
+          Belum ada riwayat. Generate link pertama kamu di atas.
+        </div>
+
+        <div id="history-list" class="space-y-2 relative z-10"></div>
+      </div>
+
+    </div><!-- end dashboard -->
+  </main>
+</LayoutPage>
+
+<script is:inline>
+  // ── CONFIG ──
+  const PASSCODE     = 'arikdania2026';   // Ganti passcode sesuai keinginan
+  // SITE_URL otomatis ikut domain saat ini (localhost atau production)
+  const SITE_URL     = window.location.origin;
+  const STORAGE_KEY  = 'wedding_guests_history';
+  const SESSION_KEY  = 'admin_authenticated';
+
+  const WA_TEMPLATE = (name, link) =>
+    `Assalamu'alaikum Warahmatullahi Wabarakatuh 🌸\n\nYth. ${name},\n\nDengan penuh kebahagiaan, kami mengundang Bapak/Ibu/Saudara/i untuk hadir pada pernikahan putra-putri kami:\n\n*Arik & Dania*\n📅 Ahad, 15 November 2026\n📍 Pondok Pesantren Anwarul Huda, Kota Malang\n\nBuka undangan digital Anda:\n${link}\n\nMohon konfirmasi kehadiran melalui link tersebut.\n\nJazakumullahu khairan 🤍`;
+
+  // ── STATE ──
+  let currentLink = '';
+  let currentName = '';
+  let currentWa   = '';
+
+  // ── DOM REFS ──
+  const loginGate   = document.getElementById('login-gate');
+  const dashboard   = document.getElementById('dashboard');
+  const loginForm   = document.getElementById('login-form');
+  const loginError  = document.getElementById('login-error');
+  const passcodeInput = document.getElementById('passcode-input');
+  const btnLogout   = document.getElementById('btn-logout');
+
+  const inputNama   = document.getElementById('input-nama');
+  const inputWa     = document.getElementById('input-wa');
+  const btnGenerate = document.getElementById('btn-generate');
+  const resultBox   = document.getElementById('result-box');
+  const resultLink  = document.getElementById('result-link');
+  const btnCopy     = document.getElementById('btn-copy');
+  const btnWa       = document.getElementById('btn-wa');
+  const btnPreview  = document.getElementById('btn-preview');
+  const copyToast   = document.getElementById('copy-toast');
+
+  const historyList  = document.getElementById('history-list');
+  const historyEmpty = document.getElementById('history-empty');
+  const btnClearHistory = document.getElementById('btn-clear-history');
+
+  // ── AUTH CHECK ──
+  function checkAuth() {
+    if (sessionStorage.getItem(SESSION_KEY) === 'true') {
+      showDashboard();
+    }
+  }
+
+  function showDashboard() {
+    loginGate.style.display = 'none';
+    dashboard.classList.remove('hidden');
+    renderHistory();
+  }
+
+  loginForm.addEventListener('submit', (e) => {
+    e.preventDefault();
+    if (passcodeInput.value === PASSCODE) {
+      sessionStorage.setItem(SESSION_KEY, 'true');
+      loginError.classList.add('hidden');
+      showDashboard();
+    } else {
+      loginError.classList.remove('hidden');
+      passcodeInput.value = '';
+      passcodeInput.focus();
+    }
+  });
+
+  btnLogout.addEventListener('click', () => {
+    sessionStorage.removeItem(SESSION_KEY);
+    location.reload();
+  });
+
+  // ── GENERATE LINK ──
+  btnGenerate.addEventListener('click', () => {
+    const inputNama  = document.getElementById('input-nama');
+    const inputWa    = document.getElementById('input-wa');
+    const resultBox  = document.getElementById('result-box');
+    const resultLink = document.getElementById('result-link');
+    const copyToast  = document.getElementById('copy-toast');
+
+    const nama = inputNama ? inputNama.value.trim() : '';
+    if (!nama) {
+      if (inputNama) {
+        inputNama.focus();
+        inputNama.classList.add('border-red-400');
+        setTimeout(() => inputNama.classList.remove('border-red-400'), 2000);
+      }
+      return;
+    }
+
+    const encoded = encodeURIComponent(nama);
+    const link = `${SITE_URL}/?to=${encoded}`;
+    const waRaw = inputWa ? inputWa.value.trim().replace(/\D/g, '') : '';
+
+    currentLink = link;
+    currentName = nama;
+    currentWa   = waRaw ? `62${waRaw.replace(/^0/, '')}` : '';
+
+    if (resultLink) resultLink.textContent = link;
+    if (resultBox)  resultBox.classList.remove('hidden');
+    if (copyToast)  copyToast.classList.add('hidden');
+
+    // Scroll ke result box
+    if (resultBox) resultBox.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+
+    // Simpan ke history
+    saveToHistory({ nama, link, wa: currentWa, time: new Date().toLocaleString('id-ID') });
+    renderHistory();
+  });
+
+  // ── COPY ──
+  btnCopy.addEventListener('click', () => {
+    const copyToast = document.getElementById('copy-toast');
+    navigator.clipboard.writeText(currentLink).then(() => {
+      if (copyToast) {
+        copyToast.classList.remove('hidden');
+        setTimeout(() => copyToast.classList.add('hidden'), 3000);
+      }
+    });
+  });
+
+  // ── KIRIM WA ──
+  btnWa.addEventListener('click', () => {
+    if (!currentWa) {
+      alert('Masukkan nomor WhatsApp tamu terlebih dahulu.');
+      const inputWa = document.getElementById('input-wa');
+      if (inputWa) inputWa.focus();
+      return;
+    }
+    const msg = WA_TEMPLATE(currentName, currentLink);
+    window.open(`https://wa.me/${currentWa}?text=${encodeURIComponent(msg)}`, '_blank');
+  });
+
+  // ── PREVIEW ──
+  btnPreview.addEventListener('click', () => {
+    window.open(currentLink, '_blank');
+  });
+
+  // ── LOCAL STORAGE HISTORY ──
+  function saveToHistory(entry) {
+    const history = getHistory();
+    // Cegah duplikat nama
+    const idx = history.findIndex(h => h.nama === entry.nama);
+    if (idx !== -1) history.splice(idx, 1);
+    history.unshift(entry);
+    // Simpan max 100
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(history.slice(0, 100)));
+  }
+
+  function getHistory() {
+    try { return JSON.parse(localStorage.getItem(STORAGE_KEY) || '[]'); }
+    catch { return []; }
+  }
+
+  function renderHistory() {
+    const history = getHistory();
+    if (history.length === 0) {
+      historyEmpty.classList.remove('hidden');
+      historyList.innerHTML = '';
+      return;
+    }
+    historyEmpty.classList.add('hidden');
+    historyList.innerHTML = history.map((h, i) => `
+      <div class="flex items-center justify-between gap-3 p-3 rounded-xl border border-[#E5DCC5] bg-[#FAF6ED]/50 hover:bg-[#FAF6ED] transition-all group">
+        <div class="flex-1 min-w-0">
+          <p class="text-xs font-semibold text-[#4A3525] truncate">${h.nama}</p>
+          <p class="text-[10px] text-[#8C6D53] truncate font-mono">${h.link}</p>
+          <p class="text-[9px] text-[#B8A99A]">${h.time}</p>
+        </div>
+        <div class="flex gap-1.5 shrink-0">
+          <button onclick="copyHistoryLink('${h.link}')" class="p-1.5 rounded-lg hover:bg-[#E5DCC5] transition-all" title="Salin">
+            <svg class="w-3.5 h-3.5 text-[#6E4F38]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 5H6a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2v-1M8 5a2 2 0 002 2h2a2 2 0 002-2M8 5a2 2 0 012-2h2a2 2 0 012 2"/>
+            </svg>
+          </button>
+          ${h.wa ? `<button onclick="sendWaHistory('${h.nama}','${h.link}','${h.wa}')" class="p-1.5 rounded-lg hover:bg-[#dcfce7] transition-all" title="Kirim WA">
+            <svg class="w-3.5 h-3.5 text-[#25D366] fill-current" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          </button>` : ''}
+          <button onclick="deleteHistory(${i})" class="p-1.5 rounded-lg hover:bg-red-50 transition-all" title="Hapus">
+            <svg class="w-3.5 h-3.5 text-red-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"/>
+            </svg>
+          </button>
+        </div>
+      </div>
+    `).join('');
+  }
+
+  // ── HISTORY ACTIONS (global untuk onclick di HTML) ──
+  window.copyHistoryLink = (link) => {
+    navigator.clipboard.writeText(link).then(() => {
+      const t = document.createElement('div');
+      t.className = 'fixed bottom-6 left-1/2 -translate-x-1/2 bg-[#4A3525] text-white text-xs px-5 py-2.5 rounded-full shadow-lg z-50';
+      t.textContent = '✓ Link disalin!';
+      document.body.appendChild(t);
+      setTimeout(() => t.remove(), 2500);
+    });
+  };
+
+  window.sendWaHistory = (nama, link, wa) => {
+    const msg = WA_TEMPLATE(nama, link);
+    window.open(`https://wa.me/${wa}?text=${encodeURIComponent(msg)}`, '_blank');
+  };
+
+  window.deleteHistory = (index) => {
+    const history = getHistory();
+    history.splice(index, 1);
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(history));
+    renderHistory();
+  };
+
+  btnClearHistory.addEventListener('click', () => {
+    if (confirm('Hapus semua riwayat tamu?')) {
+      localStorage.removeItem(STORAGE_KEY);
+      renderHistory();
+    }
+  });
+
+  // ── INIT ──
+  checkAuth();
+</script>
