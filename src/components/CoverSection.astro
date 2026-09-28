@@ -93,34 +93,34 @@ const { groomName, brideName } = Astro.props;
   </div>
 
   <!-- ── CENTER: GREETINGS + NAMES + COUPLE PHOTO ── -->
-  <div class="relative z-10 mt-0 mb-8 sm:my-auto flex flex-col items-center gap-2 sm:gap-3 shrink cover-fadein" style="animation-delay:0.15s">
+  <div class="relative z-10 mt-0 mb-16 sm:my-auto flex flex-col items-center gap-1 sm:gap-3 shrink cover-fadein" style="animation-delay:0.15s">
 
     <!-- Salam & Teks Undangan (Di atas Nama) -->
-    <div class="cover-fadein space-y-1" style="animation-delay:0.2s">
-      <p class="text-[#594433] text-sm sm:text-base font-light italic tracking-wider">
+    <div class="cover-fadein space-y-0.5" style="animation-delay:0.2s">
+      <p class="text-[#594433] text-[11px] sm:text-base font-light italic tracking-wider">
         Assalamu’alaikum Wr. Wb.
       </p>
-      <p class="text-[#594433] text-xs sm:text-sm max-w-xs sm:max-w-sm mx-auto leading-relaxed font-light px-2">
-        Dengan penuh kebahagiaan & rasa syukur, kami mengundang Bapak/Ibu/Saudara/i untuk hadir memberikan doa restu.
+      <p class="text-[#594433] text-[10px] sm:text-sm  mx-auto leading-snug font-light px-2">
+        Ya Allah semoga ridho-Mu tercurah mengiringi pernikahan anak kami
       </p>
     </div>
 
     <!-- Names -->
-    <h1 class="font-elegant-serif text-3xl sm:text-5xl md:text-6xl font-semibold text-[#4A3525] tracking-wide leading-tight my-1">
+    <h1 class="font-elegant-serif text-3xl sm:text-5xl md:text-6xl font-semibold text-[#4A3525] tracking-wide leading-tight">
       {groomName}
       <span class="font-script text-[#8C6D53] text-3xl sm:text-5xl md:text-6xl mx-1 sm:mx-2 font-normal">&</span>
       {brideName}
     </h1>
 
     <!-- Tanggal -->
-    <div class="flex justify-center items-center gap-3 text-[#8C6D53]/60 mb-1">
+    <div class="flex justify-center items-center gap-3 text-[#8C6D53]/60">
       <div class="h-px w-12 sm:w-16 bg-gradient-to-r from-transparent to-[#8C6D53]/50"></div>
       <span class="text-[10px] sm:text-xs uppercase tracking-[0.25em] font-semibold text-[#8C6D53]">15 · 11 · 2026</span>
       <div class="h-px w-12 sm:w-16 bg-gradient-to-l from-transparent to-[#8C6D53]/50"></div>
     </div>
 
     <!-- Couple Photo -->
-    <div class="relative w-40 h-40 sm:w-56 sm:h-56 md:w-64 md:h-64 shrink-0">
+    <div class="relative w-52 h-52 sm:w-56 sm:h-56 md:w-64 md:h-64 shrink-0 mb-2">
       <!-- Garis bunga bingkai belakang foto -->
       <img src="/image/bunga_bingkai.png" alt=""
         class="flower-deco absolute -top-5 -left-5 w-full h-full object-contain opacity-80 pointer-events-none select-none z-0"
@@ -144,10 +144,15 @@ const { groomName, brideName } = Astro.props;
       />
     </div>
 
+    <div class="cover-fadein space-y-0.5" style="animation-delay:0.2s">
+      <p class="text-[#594433] text-[12px] sm:text-sm max-w-xl mx-auto leading-snug font-light px-6">
+        Dengan penuh kebahagiaan & rasa syukur, kami mengundang Bapak/Ibu/Saudara/i untuk hadir memberikan doa restu.
+      </p>
+    </div>
   </div>
 
   <!-- ── CTA BUTTON ── -->
-  <div class="relative z-10 pb-3 sm:pb-4 shrink-0 cover-fadein" style="animation-delay:0.5s">
+  <div class="relative z-10 mt-4 pb-3 sm:pb-4 shrink-0 cover-fadein" style="animation-delay:0.5s">
     <button 
       id="btn-open-invitation"
       class="group relative inline-flex items-center gap-2.5 sm:gap-3 px-6 py-2.5 sm:px-8 sm:py-3.5 rounded-full bg-gradient-to-r from-[#7A5C43] via-[#6E4F38] to-[#593E2B] text-white font-semibold text-xs sm:text-sm tracking-wide shadow-[0_10px_25px_rgba(110,79,56,0.25)] hover:shadow-[0_15px_30px_rgba(110,79,56,0.4)] transition-all duration-300 hover:scale-105 active:scale-95 cursor-pointer"
