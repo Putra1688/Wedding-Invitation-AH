@@ -7,7 +7,7 @@ Ikuti langkah berikut **satu kali** untuk menghubungkan form ke Google Sheets.
 ## Langkah 1 — Buat Google Spreadsheet
 
 1. Buka [sheets.google.com](https://sheets.google.com) → buat spreadsheet baru
-2. Beri nama: `Konfirmasi Kehadiran Arik & Dania`
+2. Beri nama: `Konfirmasi Kehadiran Dania & Arik`
 3. Di **baris pertama (header)**, isi kolom berikut persis seperti ini:
 
 | A | B | C | D | E |

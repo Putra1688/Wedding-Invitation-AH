@@ -14,19 +14,19 @@ const groomName = "Arik";
 const brideName = "Dania";
 ---
 
-<Layout title={`Undangan Pernikahan - ${groomName} & ${brideName}`}>
+<Layout title={`Undangan Pernikahan - ${brideName} & ${groomName}`}>
   
   <!-- NAVBAR (FLOATING & HIDDEN UNTIL COVER IS UNLOCKED) -->
   <Navbar />
 
   <!-- COVER / HERO SECTION (MODULAR COMPONENT) -->
-  <CoverSection groomName={groomName} brideName={brideName} />
+  <CoverSection brideName={brideName} groomName={groomName}  />
 
   <!-- MAIN CONTENT SECTION (ACCESSIBLE AFTER UNLOCKING COVER) -->
   <main id="main-content" class="hidden min-h-screen bg-gradient-to-b from-[#FAF4EA]/70 via-[#F3E7D3]/50 to-[#EADBC4]/70 backdrop-blur-[1px] relative">
     
     <!-- 1. Acara Pernikahan & Mempelai -->
-    <CoupleSection groomName={groomName} brideName={brideName} />
+    <CoupleSection brideName={brideName} groomName={groomName}  />
 
     <!-- 3. Rangkaian Acara (Akad & Resepsi) -->
     <EventSection />
@@ -38,7 +38,7 @@ const brideName = "Dania";
     <!-- <GiftSection /> -->
 
     <!-- 6. Footer & Ucapan Terima Kasih -->
-    <FooterSection groomName={groomName} brideName={brideName} />
+    <FooterSection brideName={brideName} groomName={groomName}  />
 
   </main>
 </Layout>

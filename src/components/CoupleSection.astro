@@ -120,58 +120,6 @@ const {
     <!-- UNIFIED RESPONSIVE COUPLE CONTAINER -->
     <div class="flex flex-col md:flex-row items-center justify-center gap-6 md:gap-4 lg:gap-8 max-w-5xl mx-auto py-4">
       
-      <!-- Groom Section (Text di Kiri, Avatar di Kanan) -->
-      <div class="flex items-center justify-end gap-5 sm:gap-8 lg:gap-10 w-full md:w-auto text-right min-w-0">
-        <!-- Groom Text -->
-        <div class="flex-1 md:flex-initial space-y-1 min-w-0 pr-2 sm:pr-4 lg:pr-6">
-          <h3 class="font-script text-xl sm:text-2xl md:text-3xl lg:text-4xl text-[#7A5C43] font-normal leading-snug whitespace-nowrap">
-            {groomName} Wahyu Pratama
-          </h3>
-          <p class="text-[11px] sm:text-xs lg:text-sm text-[#594433] leading-relaxed font-medium">
-            Putra Pertama dari Bpk. Imam Basori <br />dan Ibu Syarifatun
-          </p>
-        </div>
-
-        <!-- Groom Avatar / Photo Frame Container -->
-        <div class="relative shrink-0 flex items-center justify-center my-2">
-          <!-- Background Flower Frame (bunga_bingkai.png) - BEHIND photo frame (z-0) -->
-          <span class="absolute inset-0 -m-5 sm:-m-7 lg:-m-9 pointer-events-none z-0 flex items-center justify-center" data-aos="zoom-in" data-aos-duration="1800">
-            <img 
-              src="/image/bunga_bingkai.png" 
-              alt="Bingkai Bunga" 
-              class="w-[155%] h-[155%] max-w-none object-contain animate-sway pointer-events-none select-none drop-shadow-sm" 
-            />
-          </span>
-
-          <!-- Main Photo Frame (z-10) -->
-          <div class="w-20 h-20 sm:w-24 sm:h-24 lg:w-32 lg:h-32 rounded-full bg-gradient-to-b from-[#FAF6ED] to-[#F5EBD9] border-4 border-white shadow-md flex items-center justify-center text-[#7A5C43] font-serif-wedding text-2xl sm:text-3xl lg:text-4xl font-bold overflow-hidden relative z-10">
-            <img 
-              src={groomPhoto} 
-              alt={`Foto ${groomName}`} 
-              class="w-full h-full object-cover"
-              onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
-            />
-            <span class="hidden w-full h-full items-center justify-center">{groomName ? groomName.charAt(0) : "A"}</span>
-          </div>
-
-          <!-- Foreground Flower (bunga_depan.png) - IN FRONT of photo frame (z-20) at bottom tip of frame -->
-          <span class="absolute -bottom-6 sm:-bottom-8 lg:-bottom-10 left-1/2 -translate-x-1/2 pointer-events-none z-20 w-16 sm:w-20 lg:w-26 flex justify-center" data-aos="zoom-in" data-aos-duration="2000">
-            <img 
-              src="/image/bunga_depan.png" 
-              alt="Bunga Depan Frame" 
-              class="w-full h-auto object-contain drop-shadow-md pointer-events-none select-none" 
-            />
-          </span>
-        </div>
-      </div>
-
-      <!-- Small Heart Badge (Desktop Only) -->
-      <div class="hidden md:flex w-9 h-9 lg:w-10 lg:h-10 rounded-full bg-white border border-[#E5DCC5] shadow-md items-center justify-center text-[#8C6D53] shrink-0 -mx-3 lg:-mx-4 z-20">
-        <svg class="w-4 h-4 lg:w-5 lg:h-5 text-[#8C6D53] fill-current" viewBox="0 0 24 24">
-          <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
-        </svg>
-      </div>
-
       <!-- Bride Section (Avatar di Kiri, Text di Kanan) -->
       <div class="flex items-center justify-start gap-5 sm:gap-8 lg:gap-10 w-full md:w-auto text-left min-w-0">
         <!-- Bride Avatar / Photo Frame Container -->
@@ -214,6 +162,58 @@ const {
           <p class="text-[11px] sm:text-xs lg:text-sm text-[#594433] leading-relaxed font-medium">
             Putri dari Bpk. H. Syamsul Huda <br />dan Ibu Hj. Nikmatuz Zuhriyah
           </p>
+        </div>
+      </div>
+
+      <!-- Small Heart Badge (Desktop Only) -->
+      <div class="hidden md:flex w-9 h-9 lg:w-10 lg:h-10 rounded-full bg-white border border-[#E5DCC5] shadow-md items-center justify-center text-[#8C6D53] shrink-0 -mx-3 lg:-mx-4 z-20">
+        <svg class="w-4 h-4 lg:w-5 lg:h-5 text-[#8C6D53] fill-current" viewBox="0 0 24 24">
+          <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
+        </svg>
+      </div>
+
+      <!-- Groom Section (Text di Kiri, Avatar di Kanan) -->
+      <div class="flex items-center justify-end gap-5 sm:gap-8 lg:gap-10 w-full md:w-auto text-right min-w-0">
+        <!-- Groom Text -->
+        <div class="flex-1 md:flex-initial space-y-1 min-w-0 pr-2 sm:pr-4 lg:pr-6">
+          <h3 class="font-script text-xl sm:text-2xl md:text-3xl lg:text-4xl text-[#7A5C43] font-normal leading-snug whitespace-nowrap">
+            {groomName} Wahyu Pratama
+          </h3>
+          <p class="text-[11px] sm:text-xs lg:text-sm text-[#594433] leading-relaxed font-medium">
+            Putra Pertama dari Bpk. Imam Basori <br />dan Ibu Syarifatun
+          </p>
+        </div>
+
+        <!-- Groom Avatar / Photo Frame Container -->
+        <div class="relative shrink-0 flex items-center justify-center my-2">
+          <!-- Background Flower Frame (bunga_bingkai.png) - BEHIND photo frame (z-0) -->
+          <span class="absolute inset-0 -m-5 sm:-m-7 lg:-m-9 pointer-events-none z-0 flex items-center justify-center" data-aos="zoom-in" data-aos-duration="1800">
+            <img 
+              src="/image/bunga_bingkai.png" 
+              alt="Bingkai Bunga" 
+              class="w-[155%] h-[155%] max-w-none object-contain animate-sway pointer-events-none select-none drop-shadow-sm" 
+            />
+          </span>
+
+          <!-- Main Photo Frame (z-10) -->
+          <div class="w-20 h-20 sm:w-24 sm:h-24 lg:w-32 lg:h-32 rounded-full bg-gradient-to-b from-[#FAF6ED] to-[#F5EBD9] border-4 border-white shadow-md flex items-center justify-center text-[#7A5C43] font-serif-wedding text-2xl sm:text-3xl lg:text-4xl font-bold overflow-hidden relative z-10">
+            <img 
+              src={groomPhoto} 
+              alt={`Foto ${groomName}`} 
+              class="w-full h-full object-cover"
+              onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
+            />
+            <span class="hidden w-full h-full items-center justify-center">{groomName ? groomName.charAt(0) : "A"}</span>
+          </div>
+
+          <!-- Foreground Flower (bunga_depan.png) - IN FRONT of photo frame (z-20) at bottom tip of frame -->
+          <span class="absolute -bottom-6 sm:-bottom-8 lg:-bottom-10 left-1/2 -translate-x-1/2 pointer-events-none z-20 w-16 sm:w-20 lg:w-26 flex justify-center" data-aos="zoom-in" data-aos-duration="2000">
+            <img 
+              src="/image/bunga_depan.png" 
+              alt="Bunga Depan Frame" 
+              class="w-full h-auto object-contain drop-shadow-md pointer-events-none select-none" 
+            />
+          </span>
         </div>
       </div>
 
