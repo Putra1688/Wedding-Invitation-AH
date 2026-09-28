@@ -47,6 +47,26 @@ const { title = "The Wedding of Adam & Hawa" } = Astro.props;
 			<div class="hidden md:block absolute inset-0 bg-[radial-gradient(ellipse_at_center,_transparent_35%,_rgba(218,198,171,0.3)_100%)] pointer-events-none"></div>
 		</div>
 
+		<!-- COVER CORNER FLOWERS — fixed, tidak ikut scroll cover -->
+		<div id="cover-flowers" class="fixed inset-0 z-45 pointer-events-none select-none overflow-hidden">
+			<!-- Pojok kiri atas -->
+			<img src="/image/sudut_bunga.png" alt=""
+				class="flower-corner-tl absolute -top-2 -left-2 w-28 sm:w-40 md:w-52 h-auto opacity-90"
+				style="animation-delay:0s" />
+			<!-- Pojok kanan atas -->
+			<img src="/image/sudut_bunga.png" alt=""
+				class="flower-corner-tr absolute -top-2 -right-2 w-28 sm:w-40 md:w-52 h-auto opacity-90"
+				style="animation-delay:0.2s" />
+			<!-- Pojok kiri bawah -->
+			<img src="/image/sudut_bunga.png" alt=""
+				class="flower-corner-bl absolute -bottom-2 -left-2 w-28 sm:w-40 md:w-52 h-auto opacity-90"
+				style="animation-delay:0.15s" />
+			<!-- Pojok kanan bawah -->
+			<img src="/image/sudut_bunga.png" alt=""
+				class="flower-corner-br absolute -bottom-2 -right-2 w-28 sm:w-40 md:w-52 h-auto opacity-90"
+				style="animation-delay:0.3s" />
+		</div>
+
 		<!-- 2. MAIN CONTENT SLOT -->
 		<div class="relative z-10">
 			<slot />
@@ -62,8 +82,58 @@ const { title = "The Wedding of Adam & Hawa" } = Astro.props;
 	<script src="https://unpkg.com/aos@2.3.4/dist/aos.js" is:inline></script>
 	<script is:inline>
 		// AOS tidak di-init di sini. Init dikendalikan dari index.astro
-		// setelah tombol buka undangan ditekan agar animasi masuk terlihat.
-		// Lihat: index.astro -> btn-open-invitation click handler
 	</script>
+
+	<style>
+		@keyframes cornerZoomIn {
+			0%   { opacity: 0; transform: scale(0.3); }
+			60%  { opacity: 1; transform: scale(1.08); }
+			80%  { transform: scale(0.97); }
+			100% { opacity: 1; transform: scale(1); }
+		}
+		@keyframes floatNormal {
+			0%,100% { transform: translateY(0px) rotate(0deg); }
+			40%     { transform: translateY(-7px) rotate(1.5deg); }
+			70%     { transform: translateY(-3px) rotate(-1deg); }
+		}
+		@keyframes floatMirrorX {
+			0%,100% { transform: scaleX(-1) translateY(0px) rotate(0deg); }
+			40%     { transform: scaleX(-1) translateY(-7px) rotate(-1.5deg); }
+			70%     { transform: scaleX(-1) translateY(-3px) rotate(1deg); }
+		}
+		@keyframes floatMirrorY {
+			0%,100% { transform: scaleY(-1) translateY(0px) rotate(0deg); }
+			40%     { transform: scaleY(-1) translateY(-7px) rotate(1.5deg); }
+			70%     { transform: scaleY(-1) translateY(-3px) rotate(-1deg); }
+		}
+		@keyframes floatMirrorXY {
+			0%,100% { transform: scaleX(-1) scaleY(-1) translateY(0px); }
+			50%     { transform: scaleX(-1) scaleY(-1) translateY(-6px); }
+		}
+
+		#cover-flowers .flower-corner-tl {
+			opacity: 0;
+			animation: cornerZoomIn 1.8s cubic-bezier(0.34,1.56,0.64,1) forwards,
+			           floatNormal 5s ease-in-out 2s infinite;
+		}
+		#cover-flowers .flower-corner-tr {
+			transform: scaleX(-1);
+			opacity: 0;
+			animation: cornerZoomIn 1.8s cubic-bezier(0.34,1.56,0.64,1) 0.2s forwards,
+			           floatMirrorX 5s ease-in-out 2.2s infinite;
+		}
+		#cover-flowers .flower-corner-bl {
+			transform: scaleY(-1);
+			opacity: 0;
+			animation: cornerZoomIn 1.8s cubic-bezier(0.34,1.56,0.64,1) 0.15s forwards,
+			           floatMirrorY 5.5s ease-in-out 2.1s infinite;
+		}
+		#cover-flowers .flower-corner-br {
+			transform: scaleX(-1) scaleY(-1);
+			opacity: 0;
+			animation: cornerZoomIn 1.8s cubic-bezier(0.34,1.56,0.64,1) 0.3s forwards,
+			           floatMirrorXY 5.5s ease-in-out 2.3s infinite;
+		}
+	</style>
 </html>
 

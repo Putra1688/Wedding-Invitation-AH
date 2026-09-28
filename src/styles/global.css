@@ -26,6 +26,12 @@ body.lock-scroll {
   touch-action: none;
 }
 
+/* Cover section tetap bisa scroll meskipun body lock-scroll */
+body.lock-scroll #cover-screen {
+  touch-action: pan-y;
+  overflow-y: auto;
+}
+
 @keyframes pulse-subtle {
   0%, 100% { transform: scale(1); opacity: 0.9; }
   50% { transform: scale(1.03); opacity: 1; }

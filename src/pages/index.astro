@@ -107,8 +107,11 @@ const brideName = "Dania";
 
         // 4. Saat flash puncak (0.6s) — sembunyikan cover, tampilkan navbar
         setTimeout(() => {
-          // Cover langsung hilang (tersembunyi di balik flash)
           coverScreen.style.display = 'none';
+
+          // Sembunyikan fixed corner flowers
+          const coverFlowers = document.getElementById('cover-flowers');
+          if (coverFlowers) coverFlowers.style.display = 'none';
 
           if (navbar) {
             navbar.classList.remove('hidden');
